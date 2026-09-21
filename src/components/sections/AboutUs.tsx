@@ -74,15 +74,14 @@ export default function AboutUs() {
             return (
               <div
                 key={label}
-                className="relative overflow-hidden rounded-soft border border-forest/10 bg-cream px-6 py-8 text-center shadow-sm"
+                className="rounded-soft border border-forest/10 bg-cream px-6 py-8 text-center shadow-sm"
               >
-                <span aria-hidden className={`absolute inset-x-0 top-0 h-1 ${tone.rule}`} />
                 <span
-                  className={`mx-auto flex h-14 w-14 items-center justify-center rounded-full ${tone.chip}`}
-                >
-                  <Icon className="h-7 w-7" strokeWidth={1.5} />
-                </span>
-                <p className="mt-4 font-display text-2xl font-semibold text-forest">
+                  aria-hidden
+                  className={`mx-auto block h-1 w-10 rounded-full ${tone.rule}`}
+                />
+                <p className="mt-4 flex items-center justify-center gap-2.5 font-display text-2xl font-semibold text-forest">
+                  <Icon aria-hidden className={`h-5 w-5 shrink-0 ${tone.text}`} strokeWidth={1.75} />
                   {label}
                 </p>
               </div>

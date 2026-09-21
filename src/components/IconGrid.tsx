@@ -9,49 +9,49 @@ export type IconGridItem = {
 
 type Props = {
   items: IconGridItem[];
-  /** "stack" centers icon over label; "inline" sits the icon beside the text. */
+  /** "stack" centers each item; "inline" runs the highlight down the left. */
   variant?: "stack" | "inline";
   columns?: string;
 };
 
+/**
+ * The site-wide item motif: a short accent bar as the highlight, then a small
+ * unboxed icon beside the label. Every list and card on the site uses this, so
+ * the pages read as one system.
+ */
 export default function IconGrid({
   items,
   variant = "stack",
   columns = "sm:grid-cols-3 lg:grid-cols-6",
 }: Props) {
   return (
-    <div className={`grid grid-cols-2 gap-x-6 gap-y-9 ${columns}`}>
+    <div className={`grid grid-cols-2 gap-x-8 gap-y-9 ${columns}`}>
       {items.map(({ label, line, icon, accent }) => {
         const Icon = iconMap[icon];
         const tone = accent ? accentMap[accent] : undefined;
-        const chip = tone ? tone.chip : "bg-forest/10 text-forest";
+        const rule = tone ? tone.rule : "bg-gold";
+        const tint = tone ? tone.text : "text-gold-dark";
 
         if (variant === "inline") {
           return (
-            <div key={label} className="flex items-start gap-4">
-              <span
-                className={`flex h-13 w-13 shrink-0 items-center justify-center rounded-full ${chip}`}
-              >
-                <Icon className="h-6 w-6" strokeWidth={1.5} />
-              </span>
-              <div>
-                <h3 className="font-display text-lg font-semibold text-forest">{label}</h3>
-                {line ? (
-                  <p className="mt-1 text-base leading-relaxed text-charcoal/70">{line}</p>
-                ) : null}
-              </div>
+            <div key={label} className="border-t border-forest/12 pt-4">
+              <span aria-hidden className={`block h-1 w-10 rounded-full ${rule}`} />
+              <h3 className="mt-3 flex items-center gap-2 font-display text-lg font-semibold text-forest">
+                <Icon aria-hidden className={`h-5 w-5 shrink-0 ${tint}`} strokeWidth={1.75} />
+                {label}
+              </h3>
+              {line ? (
+                <p className="mt-1.5 text-base leading-relaxed text-charcoal/70">{line}</p>
+              ) : null}
             </div>
           );
         }
 
         return (
           <div key={label} className="flex flex-col items-center text-center">
-            <span
-              className={`flex h-14 w-14 items-center justify-center rounded-full ${chip}`}
-            >
-              <Icon className="h-6 w-6" strokeWidth={1.5} />
-            </span>
-            <h3 className="mt-4 font-display text-lg font-semibold leading-tight text-forest">
+            <span aria-hidden className={`block h-1 w-10 rounded-full ${rule}`} />
+            <h3 className="mt-3 flex items-center gap-2 font-display text-lg font-semibold leading-tight text-forest">
+              <Icon aria-hidden className={`h-5 w-5 shrink-0 ${tint}`} strokeWidth={1.75} />
               {label}
             </h3>
             {line ? (

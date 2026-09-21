@@ -41,18 +41,19 @@ export default function Admissions() {
                 key={step}
                 className="flex h-full flex-col rounded-soft border border-forest/10 bg-cream p-6 shadow-sm"
               >
-                <div className="flex items-center justify-between">
-                  <span className="flex h-12 w-12 items-center justify-center rounded-full bg-forest/10 text-forest">
-                    <Icon className="h-6 w-6" strokeWidth={1.5} />
-                  </span>
-                  <span
+                <span aria-hidden className="block h-1 w-10 rounded-full bg-gold" />
+                <p
+                  aria-hidden
+                  className="mt-3 font-display text-sm font-semibold tracking-[0.2em] text-gold-dark"
+                >
+                  STEP {step}
+                </p>
+                <p className="mt-2 flex items-start gap-2.5 text-base font-semibold leading-relaxed text-forest">
+                  <Icon
                     aria-hidden
-                    className="font-display text-3xl font-semibold leading-none text-forest/25"
-                  >
-                    {step}
-                  </span>
-                </div>
-                <p className="mt-4 text-base font-semibold leading-relaxed text-forest">
+                    className="mt-0.5 h-5 w-5 shrink-0 text-gold-dark"
+                    strokeWidth={1.75}
+                  />
                   {label}
                 </p>
               </li>

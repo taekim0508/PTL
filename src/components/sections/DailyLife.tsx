@@ -37,15 +37,11 @@ export default function DailyLife() {
             return (
               <div
                 key={id}
-                className="relative flex flex-col overflow-hidden rounded-soft border border-forest/10 bg-cream p-7 shadow-sm"
+                className="flex flex-col rounded-soft border border-forest/10 bg-cream p-7 shadow-sm"
               >
-                <span aria-hidden className={`absolute inset-x-0 top-0 h-1 ${tone.rule}`} />
-                <span
-                  className={`flex h-14 w-14 items-center justify-center rounded-full ${tone.chip}`}
-                >
-                  <Icon className="h-7 w-7" strokeWidth={1.5} />
-                </span>
-                <h2 className="mt-5 font-display text-2xl font-semibold text-forest">
+                <span aria-hidden className={`block h-1 w-10 rounded-full ${tone.rule}`} />
+                <h2 className="mt-4 flex items-center gap-2.5 font-display text-2xl font-semibold text-forest">
+                  <Icon aria-hidden className={`h-5 w-5 shrink-0 ${tone.text}`} strokeWidth={1.75} />
                   {label}
                 </h2>
                 <p className="mt-3 text-base leading-relaxed text-charcoal/75">{body}</p>

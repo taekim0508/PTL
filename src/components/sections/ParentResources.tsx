@@ -24,11 +24,10 @@ export default function ParentResources() {
           const Icon = iconMap[icon];
           return (
             <section key={id} id={id}>
-              <div className="flex items-center gap-3">
-                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-forest/10 text-forest">
-                  <Icon className="h-5 w-5" strokeWidth={1.75} />
-                </span>
-                <h2 className="font-display text-2xl font-semibold text-forest">
+              <div>
+                <span aria-hidden className="block h-1 w-10 rounded-full bg-gold" />
+                <h2 className="mt-3 flex items-center gap-2.5 font-display text-2xl font-semibold text-forest">
+                  <Icon aria-hidden className="h-5 w-5 shrink-0 text-gold-dark" strokeWidth={1.75} />
                   {label}
                 </h2>
               </div>
