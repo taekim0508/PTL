@@ -13,31 +13,48 @@ export type AccordionItem = {
 
 type Props = {
   items: AccordionItem[];
-  /** Open this item on first render. Pass null to start fully collapsed. */
+  /** Uncontrolled: open this item on first render. Pass null to start collapsed. */
   defaultOpenId?: string | null;
+  /** Controlled: pass with onToggle to drive the open item from the parent. */
+  openId?: string | null;
+  onToggle?: (id: string | null) => void;
 };
 
-export default function Accordion({ items, defaultOpenId = null }: Props) {
-  const [openId, setOpenId] = useState<string | null>(defaultOpenId);
+export default function Accordion({
+  items,
+  defaultOpenId = null,
+  openId,
+  onToggle,
+}: Props) {
+  const [uncontrolledOpenId, setUncontrolledOpenId] = useState<string | null>(
+    defaultOpenId
+  );
+  const isControlled = openId !== undefined;
+  const currentOpenId = isControlled ? openId : uncontrolledOpenId;
+
+  function toggle(next: string | null) {
+    if (!isControlled) setUncontrolledOpenId(next);
+    onToggle?.(next);
+  }
 
   return (
     <div className="space-y-4">
       {items.map((item) => {
-        const open = openId === item.id;
+        const open = currentOpenId === item.id;
         return (
           <div
             key={item.id}
+            // Doubles as the anchor target for in-page links to this item.
+            id={item.id}
             className="overflow-hidden rounded-soft border border-forest/10 bg-white shadow-sm"
           >
             <h3>
               <button
                 type="button"
-                onClick={() => setOpenId(open ? null : item.id)}
+                onClick={() => toggle(open ? null : item.id)}
                 aria-expanded={open}
                 aria-controls={`${item.id}-panel`}
-                className={`flex w-full items-start gap-4 p-5 text-left transition-colors ${
-                  open ? "bg-sky/40" : ""
-                }`}
+                className="flex w-full items-start gap-4 p-5 text-left"
               >
                 <span className="flex-1">
                   <span className="block font-display text-xl font-semibold text-forest">

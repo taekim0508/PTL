@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useRef, useState } from "react";
 import { Check, Clock } from "lucide-react";
 import { programsIntro, programs, bilingual } from "@/lib/data";
 import PageHeader from "@/components/PageHeader";
@@ -7,11 +8,38 @@ import SectionNav from "@/components/SectionNav";
 import Accordion from "@/components/Accordion";
 import ContentPhoto from "@/components/ContentPhoto";
 
+function scrollToId(id: string) {
+  document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
+}
+
 export default function ProgramsPage() {
+  const [openId, setOpenId] = useState<string | null>(programs[0].id);
+  // Opening a program collapses another, which shifts the page, so a jump that
+  // changes what is open has to wait for the DOM to settle before it scrolls.
+  const pendingScroll = useRef<string | null>(null);
+
+  useEffect(() => {
+    const target = pendingScroll.current;
+    if (!target) return;
+    pendingScroll.current = null;
+    scrollToId(target);
+  });
+
+  function jumpTo(id: string) {
+    const isProgram = programs.some((program) => program.id === id);
+    if (!isProgram || openId === id) {
+      scrollToId(id);
+      return;
+    }
+    pendingScroll.current = id;
+    setOpenId(id);
+  }
+
   return (
     <>
       <PageHeader eyebrow="Programs" title="Preschool Programs" lead={programsIntro}>
         <SectionNav
+          onSelect={jumpTo}
           items={[
             ...programs.map(({ id, name }) => ({ id, label: name })),
             { id: "bilingual", label: "Bilingual Program" },
@@ -21,7 +49,8 @@ export default function ProgramsPage() {
 
       <section className="mx-auto max-w-4xl px-5 py-14 sm:px-8">
         <Accordion
-          defaultOpenId={programs[0].id}
+          openId={openId}
+          onToggle={setOpenId}
           items={programs.map((program) => ({
             id: program.id,
             title: program.name,
