@@ -36,7 +36,7 @@ export default function Accordion({ items, defaultOpenId = null }: Props) {
                 aria-expanded={open}
                 aria-controls={`${item.id}-panel`}
                 className={`flex w-full items-start gap-4 p-5 text-left transition-colors ${
-                  open ? "bg-sky/40" : "hover:bg-sky/20"
+                  open ? "bg-sky/40" : ""
                 }`}
               >
                 <span className="flex-1">

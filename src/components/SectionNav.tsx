@@ -15,7 +15,7 @@ export default function SectionNav({ items }: Props) {
         <a
           key={id}
           href={`#${id}`}
-          className="rounded-full border border-forest/15 bg-white px-4 py-2 text-sm font-semibold text-forest shadow-sm transition-colors hover:border-forest/30 hover:bg-sky/30"
+          className="rounded-full border border-forest/15 bg-white px-4 py-2 text-sm font-semibold text-forest shadow-sm transition-colors hover:border-forest/40"
         >
           {label}
         </a>

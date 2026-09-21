@@ -21,7 +21,7 @@ export default function Contact() {
 
       <section className="mx-auto max-w-7xl px-5 py-14 sm:px-8">
         <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
-          <div className="rounded-soft border border-forest/10 bg-white p-6 shadow-sm sm:p-8">
+          <div className="rounded-soft border border-forest/10 bg-cream-soft p-6 shadow-sm sm:p-8">
             <h2 className="font-display text-2xl font-semibold text-forest">
               Request a Tour
             </h2>

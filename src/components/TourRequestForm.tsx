@@ -63,7 +63,7 @@ export default function TourRequestForm({ variant = "page" }: Props) {
 
   return (
     <>
-      <div className="flex flex-wrap items-center gap-2.5 rounded-soft bg-cream-soft px-4 py-3">
+      <div className="flex flex-wrap items-center gap-2.5 rounded-soft border border-forest/10 bg-white px-4 py-3">
         <span className="text-sm font-semibold text-charcoal/70">
           Prefer to talk now?
         </span>

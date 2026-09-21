@@ -43,7 +43,7 @@ export default function Testimonials() {
                   <button
                     type="button"
                     onClick={() => setShowOriginal((value) => !value)}
-                    className="mt-4 w-fit rounded-full border border-forest/20 bg-white px-4 py-2 text-sm font-semibold text-forest shadow-sm transition-colors hover:bg-sky/30"
+                    className="mt-4 w-fit rounded-full border border-forest/20 bg-white px-4 py-2 text-sm font-semibold text-forest shadow-sm transition-colors hover:border-forest/40"
                   >
                     {showOriginalFirst
                       ? showOriginal
