@@ -25,7 +25,7 @@ export default function FounderMessage() {
             <div
               role="group"
               aria-label="Message language"
-              className="flex shrink-0 rounded-full border border-forest/15 p-1"
+              className="flex shrink-0 rounded-full border border-forest/15 bg-white p-1"
             >
               {(["en", "ko"] as const).map((code) => (
                 <button

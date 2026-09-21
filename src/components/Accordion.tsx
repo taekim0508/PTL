@@ -27,7 +27,7 @@ export default function Accordion({ items, defaultOpenId = null }: Props) {
         return (
           <div
             key={item.id}
-            className="overflow-hidden rounded-soft border border-forest/10 bg-cream shadow-sm"
+            className="overflow-hidden rounded-soft border border-forest/10 bg-white shadow-sm"
           >
             <h3>
               <button
@@ -35,7 +35,9 @@ export default function Accordion({ items, defaultOpenId = null }: Props) {
                 onClick={() => setOpenId(open ? null : item.id)}
                 aria-expanded={open}
                 aria-controls={`${item.id}-panel`}
-                className="flex w-full items-start gap-4 p-5 text-left"
+                className={`flex w-full items-start gap-4 p-5 text-left transition-colors ${
+                  open ? "bg-sky/40" : "hover:bg-sky/20"
+                }`}
               >
                 <span className="flex-1">
                   <span className="block font-display text-xl font-semibold text-forest">
