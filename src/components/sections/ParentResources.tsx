@@ -1,67 +1,102 @@
-import { CalendarDays, FileText, HelpCircle, Wallet } from "lucide-react";
-import { admissionsSteps } from "@/lib/data";
+"use client";
 
-const resources = [
-  {
-    icon: CalendarDays,
-    label: "Calendar & Closures",
-    line: "School calendar, holidays, and in-service days.",
-  },
-  {
-    icon: FileText,
-    label: "Handbook & Policies",
-    line: "Daily schedule, health policies, and classroom guidelines.",
-  },
-  {
-    icon: Wallet,
-    label: "Tuition & Payments",
-    line: "Tuition rates, payment schedule, and billing questions.",
-  },
-  {
-    icon: HelpCircle,
-    label: "Frequently Asked Questions",
-    line: "Answers for new and current PTL families.",
-  },
-];
+import { faqIntro, faqCategories, faqCloser, contactInfo } from "@/lib/data";
+import { iconMap } from "@/lib/icons";
+import PageHeader from "@/components/PageHeader";
+import SectionNav from "@/components/SectionNav";
+import Accordion from "@/components/Accordion";
 
 export default function ParentResources() {
   return (
-    <section className="mx-auto max-w-5xl px-5 py-16 sm:px-8">
-      <h1 className="font-display text-4xl font-semibold text-forest">Parent Resources</h1>
-      <p className="mt-2 max-w-lg text-sm leading-relaxed text-charcoal/70">
-        Everything current and prospective PTL families need, in one place.
-      </p>
+    <>
+      <PageHeader
+        eyebrow="Parent Resources"
+        title={faqIntro.heading}
+        lead={faqIntro.lead}
+      >
+        <SectionNav
+          items={faqCategories.map(({ id, label }) => ({ id, label }))}
+        />
+      </PageHeader>
 
-      <div className="mt-8 grid gap-5 sm:grid-cols-2">
-        {resources.map(({ icon: Icon, label, line }) => (
-          <div
-            key={label}
-            className="flex items-start gap-4 rounded-soft border border-forest/10 bg-cream p-5 shadow-sm"
-          >
-            <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-forest/10">
-              <Icon className="h-5 w-5 text-forest" strokeWidth={1.75} />
-            </span>
-            <div>
-              <h2 className="font-display text-base font-semibold text-forest">{label}</h2>
-              <p className="mt-1 text-sm text-charcoal/70">{line}</p>
-            </div>
-          </div>
-        ))}
+      <div className="mx-auto max-w-4xl space-y-12 px-5 py-14 sm:px-8">
+        {faqCategories.map(({ id, label, icon, items }) => {
+          const Icon = iconMap[icon];
+          return (
+            <section key={id} id={id}>
+              <div className="flex items-center gap-3">
+                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-forest/10 text-forest">
+                  <Icon className="h-5 w-5" strokeWidth={1.75} />
+                </span>
+                <h2 className="font-display text-2xl font-semibold text-forest">
+                  {label}
+                </h2>
+              </div>
+
+              <div className="mt-5">
+                <Accordion
+                  items={items.map((item, index) => ({
+                    id: `${id}-${index}`,
+                    title: item.q,
+                    body: (
+                      <div className="space-y-3">
+                        {item.a ? (
+                          <p className="text-base leading-relaxed text-charcoal/75">
+                            {item.a}
+                          </p>
+                        ) : null}
+                        {item.points ? (
+                          <ul className="space-y-2">
+                            {item.points.map((point) => (
+                              <li key={point} className="flex items-start gap-2.5">
+                                <span
+                                  aria-hidden
+                                  className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gold"
+                                />
+                                <span className="text-base leading-relaxed text-charcoal/75">
+                                  {point}
+                                </span>
+                              </li>
+                            ))}
+                          </ul>
+                        ) : null}
+                        {item.aAfter ? (
+                          <p className="text-base leading-relaxed text-charcoal/75">
+                            {item.aAfter}
+                          </p>
+                        ) : null}
+                      </div>
+                    ),
+                  }))}
+                />
+              </div>
+            </section>
+          );
+        })}
+
+        <div className="rounded-soft border border-gold-soft/70 bg-gold-soft/30 px-6 py-8 text-center sm:px-10">
+          <h2 className="font-display text-2xl font-semibold text-forest">
+            {faqCloser.heading}
+          </h2>
+          <p className="mx-auto mt-3 max-w-xl text-base leading-relaxed text-charcoal/75">
+            Message us at{" "}
+            <a
+              href={`tel:${contactInfo.phone.replace(/-/g, "")}`}
+              className="font-semibold text-forest underline underline-offset-2"
+            >
+              {contactInfo.phone}
+            </a>{" "}
+            or email{" "}
+            <a
+              href={`mailto:${contactInfo.email}`}
+              className="font-semibold text-forest underline underline-offset-2"
+            >
+              {contactInfo.email}
+            </a>
+            . We&apos;re here to help.
+          </p>
+        </div>
       </div>
-
-      <h2 className="mt-16 font-display text-2xl font-semibold text-forest">
-        New to PTL? Here&apos;s How Enrollment Works
-      </h2>
-      <ol className="mt-6 space-y-4">
-        {admissionsSteps.map(({ step, label }) => (
-          <li key={step} className="flex items-center gap-4">
-            <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-forest font-display text-sm font-semibold text-cream">
-              {step}
-            </span>
-            <span className="text-sm font-semibold text-charcoal/80">{label}</span>
-          </li>
-        ))}
-      </ol>
-    </section>
+    </>
   );
 }

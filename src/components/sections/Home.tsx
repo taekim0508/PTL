@@ -1,5 +1,7 @@
 import Hero from "@/components/sections/Hero";
 import TrustFacts from "@/components/sections/TrustFacts";
+import ParentWants from "@/components/sections/ParentWants";
+import ChildOutcomes from "@/components/sections/ChildOutcomes";
 import Foundations from "@/components/sections/Foundations";
 import FounderMessage from "@/components/sections/FounderMessage";
 import ProgramPreview from "@/components/sections/ProgramPreview";
@@ -12,6 +14,8 @@ export default function Home() {
     <>
       <Hero />
       <TrustFacts />
+      <ParentWants />
+      <ChildOutcomes />
       <Foundations />
       <ProgramPreview />
       <BilingualSnapshot />

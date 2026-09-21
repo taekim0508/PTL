@@ -9,9 +9,6 @@ type AppContextValue = {
   tourOpen: boolean;
   openTour: () => void;
   closeTour: () => void;
-  videoOpen: boolean;
-  openVideo: () => void;
-  closeVideo: () => void;
 };
 
 const AppContext = createContext<AppContextValue | null>(null);
@@ -19,7 +16,6 @@ const AppContext = createContext<AppContextValue | null>(null);
 export function AppProvider({ children }: { children: ReactNode }) {
   const [section, setSection] = useState<NavSection>("home");
   const [tourOpen, setTourOpen] = useState(false);
-  const [videoOpen, setVideoOpen] = useState(false);
 
   const value = useMemo<AppContextValue>(
     () => ({
@@ -31,11 +27,8 @@ export function AppProvider({ children }: { children: ReactNode }) {
       tourOpen,
       openTour: () => setTourOpen(true),
       closeTour: () => setTourOpen(false),
-      videoOpen,
-      openVideo: () => setVideoOpen(true),
-      closeVideo: () => setVideoOpen(false),
     }),
-    [section, tourOpen, videoOpen]
+    [section, tourOpen]
   );
 
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;

@@ -1,35 +1,42 @@
-import { bilingualSchedule } from "@/lib/data";
+"use client";
+
+import { ArrowRight } from "lucide-react";
+import { bilingual } from "@/lib/data";
+import { useApp } from "@/context/AppContext";
 
 export default function BilingualSnapshot() {
+  const { goTo } = useApp();
+
   return (
-    <section className="mx-auto max-w-7xl px-5 py-10 sm:px-8 sm:py-11">
-      <div className="grid gap-7 bg-forest px-5 py-7 text-white sm:px-8 sm:py-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+    <section className="mx-auto max-w-7xl px-5 py-16 sm:px-8">
+      <div className="grid gap-8 rounded-soft bg-forest px-6 py-10 text-cream shadow-sm sm:px-10 sm:py-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
         <div>
-          <p className="text-xs font-semibold uppercase tracking-[0.24em] text-gold-soft">
-            Bilingual Snapshot
-          </p>
-          <h2 className="mt-2 font-display text-3xl font-semibold sm:text-4xl">
-            Korean and English, naturally integrated
+          <h2 className="font-display text-3xl font-semibold sm:text-4xl">
+            {bilingual.heading}
           </h2>
+          <button
+            type="button"
+            onClick={() => goTo("programs")}
+            className="mt-5 flex items-center gap-1.5 text-base font-semibold text-gold-soft transition-colors hover:text-cream"
+          >
+            See the bilingual program
+            <ArrowRight className="h-4 w-4" strokeWidth={2} />
+          </button>
         </div>
 
         <div>
-          <p className="text-base leading-8 text-white/84">
-            Our bilingual program helps children grow in confidence in both
-            Korean and English while strengthening family connection and
-            cultural identity.
-          </p>
+          <p className="text-lg leading-relaxed text-cream/80">{bilingual.body}</p>
 
-          <div className="mt-6 grid gap-3 sm:grid-cols-2">
-            {bilingualSchedule.map(({ label, line }) => (
+          <div className="mt-6 grid gap-4 sm:grid-cols-2">
+            {bilingual.schedule.map(({ label, line }) => (
               <div
                 key={label}
-                className="border border-white/14 bg-white/6 p-4"
+                className="rounded-soft border border-cream/15 bg-cream/5 p-5"
               >
                 <p className="text-sm font-semibold uppercase tracking-wide text-gold-soft">
                   {label}
                 </p>
-                <p className="mt-2 text-sm leading-7 text-white/82">{line}</p>
+                <p className="mt-2 text-base leading-relaxed text-cream/80">{line}</p>
               </div>
             ))}
           </div>

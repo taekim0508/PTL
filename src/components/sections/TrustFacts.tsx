@@ -1,18 +1,28 @@
-import { homeFacts } from "@/lib/data";
+import { valueStatements, keyFacts } from "@/lib/data";
+import IconGrid from "@/components/IconGrid";
 
 export default function TrustFacts() {
   return (
-    <section className="mx-auto max-w-7xl px-5 py-4 sm:px-8 sm:py-5">
-      <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-5">
-        {homeFacts.map(({ label, line }) => (
-          <div
-            key={label}
-            className="flex h-full flex-col border border-forest/12 bg-white px-4 py-3"
-          >
-            <p className="text-sm font-semibold text-forest">{label}</p>
-            <p className="mt-1 flex-1 text-sm leading-6 text-charcoal/66">{line}</p>
-          </div>
-        ))}
+    <section className="bg-cream-soft py-14">
+      <div className="mx-auto max-w-7xl px-5 sm:px-8">
+        <h2 className="text-center font-display text-3xl font-semibold text-forest sm:text-4xl">
+          PTL at a Glance
+        </h2>
+
+        <div className="mt-10">
+          <IconGrid items={valueStatements} />
+        </div>
+
+        <dl className="mt-12 grid gap-x-8 gap-y-4 border-t border-forest/10 pt-8 sm:grid-cols-2 lg:grid-cols-3">
+          {keyFacts.map(({ label, value }) => (
+            <div key={label}>
+              <dt className="text-xs font-semibold uppercase tracking-[0.18em] text-gold-dark">
+                {label}
+              </dt>
+              <dd className="mt-1 text-base leading-relaxed text-charcoal/75">{value}</dd>
+            </div>
+          ))}
+        </dl>
       </div>
     </section>
   );

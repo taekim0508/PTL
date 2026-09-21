@@ -5,11 +5,12 @@ import AnnouncementBanner from "@/components/AnnouncementBanner";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import TourModal from "@/components/TourModal";
-import VideoModal from "@/components/VideoModal";
 import HomeSection from "@/components/sections/Home";
 import AboutUs from "@/components/sections/AboutUs";
+import Approach from "@/components/sections/Approach";
 import ProgramsPage from "@/components/sections/ProgramsPage";
-import WhyPTL from "@/components/sections/WhyPTL";
+import DailyLife from "@/components/sections/DailyLife";
+import Admissions from "@/components/sections/Admissions";
 import ParentResources from "@/components/sections/ParentResources";
 import Contact from "@/components/sections/Contact";
 
@@ -19,10 +20,14 @@ function ActiveSection() {
   switch (section) {
     case "about":
       return <AboutUs />;
+    case "approach":
+      return <Approach />;
     case "programs":
       return <ProgramsPage />;
-    case "why-ptl":
-      return <WhyPTL />;
+    case "daily-life":
+      return <DailyLife />;
+    case "admissions":
+      return <Admissions />;
     case "parent-resources":
       return <ParentResources />;
     case "contact":
@@ -34,7 +39,7 @@ function ActiveSection() {
 }
 
 function SiteShell() {
-  const { tourOpen, videoOpen } = useApp();
+  const { tourOpen } = useApp();
 
   return (
     <>
@@ -45,7 +50,6 @@ function SiteShell() {
       </main>
       <Footer />
       {tourOpen && <TourModal />}
-      {videoOpen && <VideoModal />}
     </>
   );
 }

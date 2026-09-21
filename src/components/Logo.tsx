@@ -3,23 +3,32 @@
 import Image from "next/image";
 import { useApp } from "@/context/AppContext";
 
-export default function Logo({ height = 48 }: { height?: number }) {
+const RATIO = 102.77 / 96.41;
+const INTRINSIC = 176;
+
+type Props = {
+  /** Tailwind height classes. The mark scales to whatever height it is given. */
+  className?: string;
+  preload?: boolean;
+};
+
+export default function Logo({ className = "h-16", preload = false }: Props) {
   const { goTo } = useApp();
-  const width = Math.round(height * (102.77 / 96.41));
 
   return (
     <button
       type="button"
       onClick={() => goTo("home")}
-      className="flex items-center rounded-soft"
-      aria-label="PTL Treehouse — go to home"
+      className="flex shrink-0 items-center"
+      aria-label="PTL Treehouse, go to home"
     >
       <Image
         src="/ptl-logo.svg"
         alt="PTL Treehouse Early Learning Center"
-        width={width}
-        height={height}
-        priority
+        width={Math.round(INTRINSIC * RATIO)}
+        height={INTRINSIC}
+        preload={preload}
+        className={`w-auto transition-[height] duration-300 ease-out ${className}`}
       />
     </button>
   );

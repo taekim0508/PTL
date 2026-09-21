@@ -10,7 +10,10 @@ export default function AnnouncementBanner() {
 
   return (
     <div className="flex items-center justify-center gap-3 bg-forest px-4 py-2 text-center text-sm text-cream">
-      <span>Reminder: No school this Friday — Teacher In-Service Day.</span>
+      <span>
+        We follow the Everett School District calendar. For closures, delays, and
+        weather cancellations, please refer to the district&apos;s announcements.
+      </span>
       <button
         type="button"
         onClick={() => setVisible(false)}

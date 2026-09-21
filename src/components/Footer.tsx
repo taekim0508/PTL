@@ -1,73 +1,91 @@
 "use client";
 
 import { MapPin, Phone, Mail } from "lucide-react";
-import { contactInfo } from "@/lib/data";
+import { contactInfo, navItems } from "@/lib/data";
 import { useApp } from "@/context/AppContext";
 import Logo from "@/components/Logo";
-import { InstagramIcon, FacebookIcon } from "@/components/SocialIcons";
+import { InstagramIcon } from "@/components/SocialIcons";
+
+const telHref = `tel:${contactInfo.phone.replace(/-/g, "")}`;
 
 export default function Footer() {
-  const { openTour } = useApp();
+  const { openTour, goTo } = useApp();
 
   return (
     <footer className="border-t border-forest/10 bg-cream-soft">
       <div className="mx-auto max-w-7xl px-5 py-14 sm:px-8">
-        <div className="grid gap-10 md:grid-cols-[1.3fr_1fr_1fr]">
+        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1.1fr]">
           <div>
-            <Logo />
-            <p className="mt-4 max-w-sm text-sm leading-relaxed text-charcoal/70">
+            <Logo className="h-24" />
+            <p className="mt-4 max-w-sm text-base leading-relaxed text-charcoal/70">
               A Christian bilingual preschool where children are known by
               name, loved well, and prepared for what comes next.
             </p>
             <button
               type="button"
               onClick={openTour}
-              className="ui-button-primary mt-5"
+              className="mt-5 rounded-full bg-forest px-6 py-3 text-base font-semibold text-cream shadow-sm transition-colors hover:bg-forest-dark"
             >
               Schedule a Tour
             </button>
           </div>
 
           <div>
-            <h3 className="font-display text-base font-semibold text-forest">
-              Visit Us
-            </h3>
-            <ul className="mt-4 space-y-3 text-sm text-charcoal/75">
-              <li className="flex items-start gap-2.5">
-                <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-gold" strokeWidth={1.75} />
-                {contactInfo.address}
-              </li>
-              <li className="flex items-center gap-2.5">
-                <Phone className="h-4 w-4 shrink-0 text-gold" strokeWidth={1.75} />
-                {contactInfo.phone}
-              </li>
-              <li className="flex items-center gap-2.5">
-                <Mail className="h-4 w-4 shrink-0 text-gold" strokeWidth={1.75} />
-                {contactInfo.email}
-              </li>
+            <h3 className="font-display text-lg font-semibold text-forest">Explore</h3>
+            <ul className="mt-4 space-y-2.5 text-base text-charcoal/75">
+              {navItems.map(({ label, section }) => (
+                <li key={section}>
+                  <button
+                    type="button"
+                    onClick={() => goTo(section)}
+                    className="transition-colors hover:text-forest"
+                  >
+                    {label}
+                  </button>
+                </li>
+              ))}
             </ul>
           </div>
 
           <div>
-            <h3 className="font-display text-base font-semibold text-forest">
-              Follow Our Days
-            </h3>
-            <p className="mt-4 text-sm text-charcoal/75">
-              See classroom moments on Instagram and Facebook.
-            </p>
-            <div className="mt-4 flex gap-3">
-              <span className="flex h-10 w-10 items-center justify-center border border-forest/10 bg-forest/5 text-forest">
-                <InstagramIcon className="h-5 w-5" />
-              </span>
-              <span className="flex h-10 w-10 items-center justify-center border border-forest/10 bg-forest/5 text-forest">
-                <FacebookIcon className="h-5 w-5" />
-              </span>
-            </div>
+            <h3 className="font-display text-lg font-semibold text-forest">Visit Us</h3>
+            <ul className="mt-4 space-y-3 text-base text-charcoal/75">
+              <li className="flex items-start gap-2.5">
+                <MapPin className="mt-1 h-4 w-4 shrink-0 text-gold" strokeWidth={1.75} />
+                {contactInfo.address}
+              </li>
+              <li className="flex items-start gap-2.5">
+                <Phone className="mt-1 h-4 w-4 shrink-0 text-gold" strokeWidth={1.75} />
+                <a href={telHref} className="transition-colors hover:text-forest">
+                  {contactInfo.phone}
+                </a>
+              </li>
+              <li className="flex items-start gap-2.5">
+                <Mail className="mt-1 h-4 w-4 shrink-0 text-gold" strokeWidth={1.75} />
+                <a
+                  href={`mailto:${contactInfo.email}`}
+                  className="transition-colors hover:text-forest"
+                >
+                  {contactInfo.email}
+                </a>
+              </li>
+            </ul>
+
+            <a
+              href={contactInfo.instagramUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="mt-5 inline-flex items-center gap-2.5 rounded-full bg-forest/10 px-4 py-2.5 text-base font-semibold text-forest transition-colors hover:bg-forest/15"
+            >
+              <InstagramIcon className="h-5 w-5" />
+              {contactInfo.instagram}
+            </a>
           </div>
         </div>
 
-        <div className="mt-12 border-t border-forest/10 pt-6 text-xs text-charcoal/50">
-          {new Date().getFullYear()} PTL Treehouse. All rights reserved.
+        <div className="mt-12 flex flex-wrap items-center justify-between gap-3 border-t border-forest/10 pt-6 text-xs text-charcoal/50">
+          <span>{new Date().getFullYear()} PTL Treehouse. All rights reserved.</span>
+          <span>Monday to Friday, 8:30 AM &ndash; 3:30 PM</span>
         </div>
       </div>
     </footer>
