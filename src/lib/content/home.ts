@@ -21,37 +21,43 @@ export const hero = {
 
 /** "Quick Value Statements" from the content doc. */
 export const valueStatements = [
-  { label: "Christian Values" },
-  { label: "Korean-English Bilingual" },
-  { label: "Play-Based Learning" },
-  { label: "Ages 2.5 to 5" },
-  { label: "Small Family Environment" },
-  { label: "Kindergarten Ready" },
+  { label: "Christian Values", accent: "gold" },
+  { label: "Korean-English Bilingual", accent: "sky" },
+  { label: "Play-Based Learning", accent: "green" },
+  { label: "Ages 2.5 to 5", accent: "blush" },
+  { label: "Small Family Environment", accent: "rose" },
+  { label: "Kindergarten Ready", accent: "bark" },
 ];
 
 export const parentWants = [
   {
     label: "Feel loved",
+    accent: "rose",
     line: "Your child is known, valued, and cared for like family.",
   },
   {
     label: "Make friends",
+    accent: "blush",
     line: "We help children build meaningful friendships that last.",
   },
   {
     label: "Build confidence",
+    accent: "green",
     line: "Encourage them to try, explore, and believe in themselves.",
   },
   {
     label: "Love learning",
+    accent: "sky",
     line: "Hands-on, play-based learning that sparks curiosity and joy.",
   },
   {
     label: "Develop faith",
+    accent: "gold",
     line: "Growing in God's love through prayer, worship, and Bible lessons.",
   },
   {
     label: "Be ready for Kindergarten",
+    accent: "bark",
     line: "Kindergarten-ready academically, socially, and emotionally.",
   },
 ];

@@ -43,9 +43,12 @@ function SiteShell() {
 
   return (
     <>
+      <a className="skip-link" href="#main">
+        Skip to content
+      </a>
       <AnnouncementBanner />
       <Nav />
-      <main className="flex-1">
+      <main id="main" tabIndex={-1} className="flex-1">
         <ActiveSection />
       </main>
       <Footer />

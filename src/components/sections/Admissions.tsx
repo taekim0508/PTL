@@ -107,7 +107,7 @@ export default function Admissions() {
                         {hours}
                       </span>
                     </th>
-                    <td className="hidden px-5 py-4 align-top text-base text-charcoal/70 sm:table-cell sm:px-6">
+                    <td className="hidden px-5 py-4 align-top text-base text-charcoal/75 sm:table-cell sm:px-6">
                       {hours}
                     </td>
                     <td className="px-5 py-4 text-right align-top font-display text-xl font-semibold text-forest sm:px-6">

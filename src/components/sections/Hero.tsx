@@ -21,7 +21,7 @@ export default function Hero() {
             {hero.headlineAccent}
           </p>
 
-          <div className="mt-7 max-w-xl space-y-1 text-lg leading-relaxed text-charcoal/70">
+          <div className="mt-7 max-w-xl space-y-1 text-lg leading-relaxed text-charcoal/75">
             {hero.verse.map((line) => (
               <p key={line}>{line}</p>
             ))}
@@ -29,7 +29,7 @@ export default function Hero() {
           <p className="mt-4 font-display text-2xl font-semibold text-forest">
             {hero.turn}
           </p>
-          <div className="mt-2 max-w-xl space-y-1 text-lg leading-relaxed text-charcoal/70">
+          <div className="mt-2 max-w-xl space-y-1 text-lg leading-relaxed text-charcoal/75">
             {hero.today.map((line) => (
               <p key={line}>{line}</p>
             ))}

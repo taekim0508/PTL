@@ -7,6 +7,8 @@ import ContentPhoto from "@/components/ContentPhoto";
 export default function FounderMessage() {
   const [lang, setLang] = useState<"en" | "ko">("en");
   const copy = directorMessage[lang];
+  // Screen readers switch voice on this; without it Korean is read as English.
+  const langAttr = lang === "ko" ? "ko" : "en";
 
   return (
     <section className="mx-auto max-w-7xl px-5 py-16 sm:px-8">
@@ -36,7 +38,7 @@ export default function FounderMessage() {
                   className={`rounded-full px-4 py-1.5 text-sm font-semibold transition-colors ${
                     lang === code
                       ? "bg-forest text-cream"
-                      : "text-charcoal/60 hover:text-forest"
+                      : "text-charcoal/75 hover:text-forest"
                   }`}
                 >
                   {directorMessage[code].label}
@@ -45,16 +47,16 @@ export default function FounderMessage() {
             </div>
           </div>
 
-          <div className="mt-6 space-y-4 text-lg leading-relaxed text-charcoal/75">
+          <div lang={langAttr} className="mt-6 space-y-4 text-lg leading-relaxed text-charcoal/75">
             {copy.paragraphs.map((paragraph) => (
               <p key={paragraph}>{paragraph}</p>
             ))}
           </div>
 
-          <p className="mt-6 text-lg leading-relaxed text-charcoal/75">
+          <p lang={langAttr} className="mt-6 text-lg leading-relaxed text-charcoal/75">
             {copy.prayerLead}
           </p>
-          <ul className="mt-4 space-y-2 border-l-2 border-gold-soft pl-5">
+          <ul lang={langAttr} className="mt-4 space-y-2 border-l-2 border-gold-soft pl-5">
             {copy.affirmations.map((line) => (
               <li key={line} className="font-display text-xl text-forest">
                 {line}
@@ -62,10 +64,14 @@ export default function FounderMessage() {
             ))}
           </ul>
 
-          <p className="mt-6 text-lg leading-relaxed text-charcoal/75">{copy.closing}</p>
+          <p lang={langAttr} className="mt-6 text-lg leading-relaxed text-charcoal/75">
+            {copy.closing}
+          </p>
 
           <div className="mt-6 border-t border-forest/10 pt-5">
-            <p className="text-base text-charcoal/65">{copy.signoffLead}</p>
+            <p lang={langAttr} className="text-base text-charcoal/75">
+              {copy.signoffLead}
+            </p>
             <div className="mt-2 space-y-0.5 text-base font-semibold text-forest">
               {directorMessage.signoff.map((line) => (
                 <p key={line}>{line}</p>

@@ -11,6 +11,16 @@ export default function Nav() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
+  // Escape closes the drawer, matching the modal.
+  useEffect(() => {
+    if (!mobileOpen) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setMobileOpen(false);
+    };
+    document.addEventListener("keydown", onKey);
+    return () => document.removeEventListener("keydown", onKey);
+  }, [mobileOpen]);
+
   // The logo is deliberately large at rest so the brand leads the page, then
   // shrinks once you scroll so a sticky header never eats the viewport.
   useEffect(() => {
@@ -44,7 +54,7 @@ export default function Nav() {
               className={`text-base font-semibold transition-colors ${
                 section === item.section
                   ? "text-forest"
-                  : "text-charcoal/70 hover:text-forest"
+                  : "text-charcoal/75 hover:text-forest"
               }`}
             >
               {item.label}
@@ -88,7 +98,7 @@ export default function Nav() {
                 className={`rounded-soft px-3 py-2.5 text-left text-base font-semibold ${
                   section === item.section
                     ? "bg-forest/10 text-forest"
-                    : "text-charcoal/70"
+                    : "text-charcoal/75"
                 }`}
               >
                 {item.label}

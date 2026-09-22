@@ -20,7 +20,7 @@ export default function PageHeader({ eyebrow, title, lead, children }: Props) {
         {title}
       </h1>
       {lead ? (
-        <p className="mx-auto mt-4 max-w-2xl text-lg leading-relaxed text-charcoal/70">
+        <p className="mx-auto mt-4 max-w-2xl text-lg leading-relaxed text-charcoal/75">
           {lead}
         </p>
       ) : null}

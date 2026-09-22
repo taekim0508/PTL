@@ -8,6 +8,7 @@
   --color-gold: #c99a3e;
   --color-gold-soft: #e8cf9c;
   --color-rose: #c97b63;
+  --color-rose-dark: #a4543c;
   --color-charcoal: #3a342c;
 
   /* Accents drawn from the PTL Treehouse logo palette. */
@@ -20,7 +21,7 @@
   --color-bark: #9a694b;
   --color-bark-dark: #6d4831;
   --color-sunshine: #f9a227;
-  --color-gold-dark: #8c6820;
+  --color-gold-dark: #856118;
 }
 
 @theme inline {
@@ -42,6 +43,7 @@
   --color-bark-dark: var(--color-bark-dark);
   --color-sunshine: var(--color-sunshine);
   --color-gold-dark: var(--color-gold-dark);
+  --color-rose-dark: var(--color-rose-dark);
 
   --font-display: var(--font-display);
   --font-body: var(--font-body);
@@ -88,6 +90,37 @@ html {
 /* Anchored sections sit below the sticky header when jumped to. */
 [id] {
   scroll-margin-top: 7rem;
+}
+
+/* One focus ring for every interactive element, so keyboard users always see
+   where they are. Inputs clear their own outline, so they opt back in here. */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+summary:focus-visible,
+[tabindex]:focus-visible {
+  outline: 3px solid var(--color-gold);
+  outline-offset: 2px;
+  border-radius: 0.35rem;
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -4rem;
+  z-index: 60;
+  padding: 0.75rem 1.25rem;
+  border-radius: 999px;
+  background: var(--color-forest);
+  color: var(--color-cream);
+  font-weight: 600;
+  transition: top 160ms ease;
+}
+
+.skip-link:focus {
+  top: 1rem;
 }
 
 @media (prefers-reduced-motion: reduce) {

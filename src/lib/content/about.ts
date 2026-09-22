@@ -11,12 +11,12 @@ export const aboutIntro = {
 };
 
 export const feelStatements = [
-  { label: "Safe" },
-  { label: "Loved" },
-  { label: "Encouraged" },
-  { label: "Accepted" },
-  { label: "Challenged" },
-  { label: "Celebrated" },
+  { label: "Safe", accent: "sky" },
+  { label: "Loved", accent: "rose" },
+  { label: "Encouraged", accent: "gold" },
+  { label: "Accepted", accent: "blush" },
+  { label: "Challenged", accent: "bark" },
+  { label: "Celebrated", accent: "green" },
 ];
 
 export const mission = {

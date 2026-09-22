@@ -8,7 +8,7 @@ export default function Foundations() {
         <h2 className="text-center font-display text-3xl font-semibold text-forest sm:text-4xl">
           The PTL Difference
         </h2>
-        <p className="mx-auto mt-3 max-w-2xl text-center text-base leading-relaxed text-charcoal/65">
+        <p className="mx-auto mt-3 max-w-2xl text-center text-base leading-relaxed text-charcoal/75">
           Play. Pray. Prepare. Everything we do at PTL Treehouse is guided by
           these three foundational pillars.
         </p>
@@ -28,7 +28,7 @@ export default function Foundations() {
                 <h3 className="mt-1 font-display text-2xl font-semibold leading-tight text-forest">
                   {label}
                 </h3>
-                <p className="mt-3 flex-1 text-base leading-relaxed text-charcoal/70">
+                <p className="mt-3 flex-1 text-base leading-relaxed text-charcoal/75">
                   {line}
                 </p>
               </div>

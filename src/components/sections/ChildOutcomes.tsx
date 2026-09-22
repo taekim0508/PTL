@@ -18,7 +18,7 @@ export default function ChildOutcomes() {
                 <h3 className="mt-4 font-display text-2xl font-semibold text-forest">
                   {label}
                 </h3>
-                <p className="mt-2 text-base leading-relaxed text-charcoal/70">{line}</p>
+                <p className="mt-2 text-base leading-relaxed text-charcoal/75">{line}</p>
               </div>
             );
           })}

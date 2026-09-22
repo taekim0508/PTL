@@ -31,12 +31,15 @@ export default function ItemGrid({
             key={label}
             className={centered ? "flex flex-col items-center text-center" : ""}
           >
-            <span aria-hidden className={`block h-1 w-10 rounded-full ${bar}`} />
+            <span
+              aria-hidden
+              className={`block h-1 w-10 rounded-full ${bar} ${centered ? "mx-auto" : ""}`}
+            />
             <h3 className="mt-3 font-display text-lg font-semibold leading-tight text-forest">
               {label}
             </h3>
             {line ? (
-              <p className="mt-1.5 text-base leading-relaxed text-charcoal/70">{line}</p>
+              <p className="mt-1.5 text-base leading-relaxed text-charcoal/75">{line}</p>
             ) : null}
           </div>
         );

@@ -40,7 +40,7 @@ export const accentMap: Record<
 > = {
   green: { bar: "bg-leaf", card: "bg-leaf/8", text: "text-leaf-dark" },
   gold: { bar: "bg-gold", card: "bg-gold/10", text: "text-gold-dark" },
-  rose: { bar: "bg-rose", card: "bg-rose/8", text: "text-rose" },
+  rose: { bar: "bg-rose", card: "bg-rose/8", text: "text-rose-dark" },
   sky: { bar: "bg-sage", card: "bg-sky/20", text: "text-sage-dark" },
   blush: { bar: "bg-blush", card: "bg-blush/25", text: "text-bark-dark" },
   bark: { bar: "bg-bark", card: "bg-bark/8", text: "text-bark-dark" },

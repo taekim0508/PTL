@@ -28,11 +28,11 @@ export default function ScheduleTable({ heading, caption, note, rows }: Props) {
             <tr key={`${time}-${activity}`} className="border-b border-forest/8 last:border-0">
               <th
                 scope="row"
-                className="w-36 whitespace-nowrap px-5 py-3 align-top text-sm font-semibold text-forest sm:w-44 sm:px-6 sm:text-base"
+                className="w-28 px-4 py-3 align-top text-sm font-semibold text-forest sm:w-44 sm:whitespace-nowrap sm:px-6 sm:text-base"
               >
                 {time}
               </th>
-              <td className="px-5 py-3 align-top text-base leading-relaxed text-charcoal/75 sm:px-6">
+              <td className="px-4 py-3 align-top text-base leading-relaxed text-charcoal/75 sm:px-6">
                 {activity}
               </td>
             </tr>
@@ -41,7 +41,7 @@ export default function ScheduleTable({ heading, caption, note, rows }: Props) {
       </table>
 
       {note ? (
-        <p className="border-t border-forest/10 px-5 py-3 text-sm text-charcoal/55 sm:px-6">
+        <p className="border-t border-forest/10 px-5 py-3 text-sm text-charcoal/75 sm:px-6">
           {note}
         </p>
       ) : null}

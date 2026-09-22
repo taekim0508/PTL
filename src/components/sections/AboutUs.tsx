@@ -39,7 +39,11 @@ export default function AboutUs() {
             We believe children learn best when they feel
           </h2>
           <div className="mt-8">
-            <ItemGrid items={feelStatements} />
+            <ItemGrid
+              items={feelStatements}
+              centered
+              columns="sm:grid-cols-3 lg:grid-cols-6"
+            />
           </div>
         </div>
 
@@ -65,7 +69,7 @@ export default function AboutUs() {
         <h2 className="text-center font-display text-3xl font-semibold text-forest sm:text-4xl">
           {vision.heading}
         </h2>
-        <p className="mt-3 text-center text-lg text-charcoal/70">{vision.lead}</p>
+        <p className="mt-3 text-center text-lg text-charcoal/75">{vision.lead}</p>
 
         <div className="mt-8 grid gap-5 sm:grid-cols-3">
           {vision.loves.map(({ label, accent }) => {
@@ -97,7 +101,7 @@ export default function AboutUs() {
           <h2 className="text-center font-display text-3xl font-semibold text-forest sm:text-4xl">
             {team.heading}
           </h2>
-          <p className="mx-auto mt-3 max-w-2xl text-center text-lg leading-relaxed text-charcoal/70">
+          <p className="mx-auto mt-3 max-w-2xl text-center text-lg leading-relaxed text-charcoal/75">
             {team.lead}
           </p>
 
@@ -115,7 +119,7 @@ export default function AboutUs() {
                   className="rounded-soft border border-forest/10 bg-white px-6 py-5 shadow-sm"
                 >
                   <p className="font-display text-2xl font-semibold text-forest">{name}</p>
-                  <p className="mt-1 text-base text-charcoal/65">{role}</p>
+                  <p className="mt-1 text-base text-charcoal/75">{role}</p>
                 </li>
               ))}
             </ul>

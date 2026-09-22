@@ -65,7 +65,7 @@ export default function ProgramsPage() {
               </span>
             ),
             lead: (
-              <span className="mt-1.5 block text-base leading-relaxed text-charcoal/70">
+              <span className="mt-1.5 block text-base leading-relaxed text-charcoal/75">
                 {program.summary}
               </span>
             ),

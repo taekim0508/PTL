@@ -58,7 +58,7 @@ export default function Approach() {
                   />
                 </div>
 
-                <p className="mt-6 border-t border-forest/10 pt-5 text-base leading-relaxed text-charcoal/70">
+                <p className="mt-6 border-t border-forest/10 pt-5 text-base leading-relaxed text-charcoal/75">
                   {closing}
                 </p>
               </section>

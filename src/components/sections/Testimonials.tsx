@@ -11,7 +11,7 @@ export default function Testimonials() {
       <h2 className="text-center font-display text-3xl font-semibold text-forest sm:text-4xl">
         {testimonialsHeading}
       </h2>
-      <p className="mx-auto mt-3 max-w-xl text-center text-base leading-relaxed text-charcoal/60">
+      <p className="mx-auto mt-3 max-w-xl text-center text-base leading-relaxed text-charcoal/75">
         A few words from parents who have entrusted PTL Treehouse with some of
         their children&apos;s earliest years.
       </p>
@@ -35,7 +35,10 @@ export default function Testimonials() {
                 key={attribution}
                 className="flex h-full flex-col rounded-soft border border-forest/10 bg-white p-6 shadow-sm"
               >
-                <p className="flex-1 text-base leading-relaxed text-charcoal/75">
+                <p
+                  lang={activeQuote === originalQuote ? "ko" : "en"}
+                  className="flex-1 text-base leading-relaxed text-charcoal/75"
+                >
                   &ldquo;{activeQuote}&rdquo;
                 </p>
 
@@ -55,7 +58,7 @@ export default function Testimonials() {
                   </button>
                 ) : null}
 
-                <p className="mt-5 text-sm font-semibold uppercase tracking-wide text-charcoal/50">
+                <p className="mt-5 text-sm font-semibold uppercase tracking-wide text-charcoal/75">
                   {attribution}
                 </p>
               </div>

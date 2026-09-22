@@ -13,6 +13,7 @@ export default function HomeCta() {
           alt="Children at play in a PTL Treehouse classroom"
           placeholder="A classroom moment from a PTL tour"
           className="aspect-[4/3]"
+          sizes="(max-width: 1024px) 100vw, 44vw"
         />
 
         <div>

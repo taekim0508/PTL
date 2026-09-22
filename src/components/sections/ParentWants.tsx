@@ -7,7 +7,7 @@ export default function ParentWants() {
       <h2 className="text-center font-display text-3xl font-semibold text-forest sm:text-4xl">
         What Every Parent Wants
       </h2>
-      <p className="mx-auto mt-3 max-w-xl text-center text-lg leading-relaxed text-charcoal/65">
+      <p className="mx-auto mt-3 max-w-xl text-center text-lg leading-relaxed text-charcoal/75">
         You want your child to:
       </p>
 

@@ -84,7 +84,7 @@ export default function DailyLife() {
         <h2 className="text-center font-display text-3xl font-semibold text-forest sm:text-4xl">
           Weekly Enrichment
         </h2>
-        <p className="mx-auto mt-3 max-w-2xl text-center text-base leading-relaxed text-charcoal/65">
+        <p className="mx-auto mt-3 max-w-2xl text-center text-base leading-relaxed text-charcoal/75">
           Full-day students join a different enrichment class each afternoon.
         </p>
 

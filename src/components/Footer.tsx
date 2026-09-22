@@ -17,7 +17,7 @@ export default function Footer() {
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1.1fr]">
           <div>
             <Logo className="h-24" />
-            <p className="mt-4 max-w-sm text-base leading-relaxed text-charcoal/70">
+            <p className="mt-4 max-w-sm text-base leading-relaxed text-charcoal/75">
               A Christian bilingual preschool where children are known by
               name, loved well, and prepared for what comes next.
             </p>
@@ -83,7 +83,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 flex flex-wrap items-center justify-between gap-3 border-t border-forest/10 pt-6 text-xs text-charcoal/50">
+        <div className="mt-12 flex flex-wrap items-center justify-between gap-3 border-t border-forest/10 pt-6 text-xs text-charcoal/75">
           <span>{new Date().getFullYear()} PTL Treehouse. All rights reserved.</span>
           <span>Monday to Friday, 8:30 AM &ndash; 3:30 PM</span>
         </div>

@@ -47,7 +47,7 @@ export default function ProgramPreview() {
                     <h3 className="font-display text-xl font-semibold leading-tight text-forest">
                       {program.name}
                     </h3>
-                    <p className="mt-1 text-base leading-relaxed text-charcoal/70">
+                    <p className="mt-1 text-base leading-relaxed text-charcoal/75">
                       {program.summary}
                     </p>
                   </div>
@@ -67,7 +67,7 @@ export default function ProgramPreview() {
             className="aspect-[4/3]"
             sizes="(max-width: 1024px) 100vw, 46vw"
           />
-          <p className="text-base leading-relaxed text-charcoal/65">
+          <p className="text-base leading-relaxed text-charcoal/75">
             Hands-on projects, language-rich lessons, and joyful classroom
             routines help children build confidence through everyday learning.
           </p>

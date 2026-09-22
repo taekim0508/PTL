@@ -9,7 +9,7 @@ export default function TourModal() {
 
   return (
     <Modal title="Schedule a Tour" onClose={closeTour}>
-      <p className="text-base leading-relaxed text-charcoal/70">
+      <p className="text-base leading-relaxed text-charcoal/75">
         Tell us a little about your family and we&apos;ll follow up to confirm a
         time to visit.
       </p>
