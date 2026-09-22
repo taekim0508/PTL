@@ -19,9 +19,11 @@ Open [http://localhost:3000](http://localhost:3000).
 ## Structure
 
 - `src/app/layout.tsx`: fonts (Fraunces, Nunito, Caveat) and root shell
-- `src/app/page.tsx`: top-level app shell; swaps sections client-side
-- `src/context/AppContext.tsx`: active page, tour modal state, and the hash
-  sync that gives each page a shareable URL and a working back button
+- `src/app/<route>/page.tsx`: one file per page, each exporting its own
+  metadata and rendering a section component
+- `src/app/sitemap.ts`, `src/app/robots.ts`, `src/app/not-found.tsx`
+- `src/components/SiteShell.tsx`: the chrome every route shares
+- `src/context/AppContext.tsx`: tour modal state
 - `src/components/`: Nav, Footer, Logo, and shared UI
 - `src/components/sections/`: Home, About, Our Approach, Programs, Daily Life,
   Admissions, FAQ, Contact
@@ -56,6 +58,35 @@ so `accentMap.card` is used only where a tinted surface earns its keep.
 Buttons come from `BTN_PRIMARY`, `BTN_SECONDARY` and `BTN_ON_FOREST`. Cards
 come from `CARD` and `CARD_BARE`. Nothing invents a fourth.
 
+## Routes and metadata
+
+Every page is a real route, prerendered as static HTML:
+
+| Route | Page |
+| --- | --- |
+| `/` | Home |
+| `/about` | About Us |
+| `/our-approach` | Our Approach |
+| `/programs` | Preschool Programs |
+| `/daily-life` | Daily Life |
+| `/admissions` | Admissions & Tuition |
+| `/faq` | Frequently Asked Questions |
+| `/contact` | Contact & Visit |
+
+Each route calls `pageMetadata()` from `src/lib/metadata.ts` for its title,
+description, canonical URL and share card. `src/components/StructuredData.tsx`
+emits schema.org data describing the school itself, which is what a local
+search result is built from.
+
+The hash is free for in-page anchors, so `/admissions#tuition` links straight
+to the tuition table and `/programs#full-day` opens that programme. The
+router scrolls to the top while it hydrates, which undoes the browser's own
+jump to the anchor, so `src/components/HashScroll.tsx` re-asserts the
+position for a few frames and gives up the moment the reader scrolls.
+
+Set `NEXT_PUBLIC_SITE_URL` when the school moves to its own domain. Without
+it everything canonicalises to the Vercel URL in `src/lib/content/site.ts`.
+
 ## Content
 
 Every string a visitor reads lives in `src/lib/content/`, so copy edits never
@@ -72,7 +103,8 @@ require touching a component. Pages map to files: `about.ts`, `approach.ts`,
   land in the same weight class as the rest of the library.
 - Team photography beyond the directors is still outstanding. The About page
   says so in place rather than showing a dashed placeholder.
-- Pages are still swapped client-side from one document. The hash now carries
-  which page you are on, which buys back deep links and the back button, but
-  real App Router routes would additionally buy per-page titles and
-  descriptions for search and for link previews.
+- **The tour request form does not send anything.** It sets local state and
+  tells the visitor "Your request is in." In production that means a parent
+  believes they have asked for a tour and the school never hears about it.
+  This needs a real destination before the site is handling live traffic.
+- `brand/` holds raw brand artwork that the site does not load.

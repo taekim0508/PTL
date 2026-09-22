@@ -1,13 +1,16 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import { navItems } from "@/lib/data";
 import { useApp } from "@/context/AppContext";
 import Logo from "@/components/Logo";
 
 export default function Nav() {
-  const { section, goTo, openTour } = useApp();
+  const { openTour } = useApp();
+  const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -49,12 +52,11 @@ export default function Nav() {
             has to put up with. */}
         <nav aria-label="Main" className="hidden items-center gap-1 lg:flex">
           {navItems.map((item) => {
-            const active = section === item.section;
+            const active = pathname === item.href;
             return (
-              <button
+              <Link
                 key={item.section}
-                type="button"
-                onClick={() => goTo(item.section)}
+                href={item.href}
                 aria-current={active ? "page" : undefined}
                 className={`relative px-3 py-2 text-[0.9375rem] font-semibold transition-colors ${
                   active ? "text-forest" : "text-charcoal/70 hover:text-forest"
@@ -69,7 +71,7 @@ export default function Nav() {
                     active ? "opacity-100" : "opacity-0"
                   }`}
                 />
-              </button>
+              </Link>
             );
           })}
         </nav>
@@ -102,15 +104,14 @@ export default function Nav() {
             className="mx-auto flex max-w-7xl flex-col gap-1 px-5 py-4 sm:px-8"
           >
             {navItems.map((item) => {
-              const active = section === item.section;
+              const active = pathname === item.href;
               return (
-                <button
+                <Link
                   key={item.section}
-                  type="button"
-                  onClick={() => {
-                    goTo(item.section);
-                    setMobileOpen(false);
-                  }}
+                  href={item.href}
+                  // Closing on the tap that navigates, rather than reacting to
+                  // the path change, keeps the drawer out of render effects.
+                  onClick={() => setMobileOpen(false)}
                   aria-current={active ? "page" : undefined}
                   className={`rounded-soft border-l-[3px] px-3 py-2.5 text-left text-base font-semibold transition-colors ${
                     active
@@ -119,7 +120,7 @@ export default function Nav() {
                   }`}
                 >
                   {item.label}
-                </button>
+                </Link>
               );
             })}
             <button

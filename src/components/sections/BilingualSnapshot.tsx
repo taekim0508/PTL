@@ -1,8 +1,6 @@
-"use client";
-
+import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { bilingual } from "@/lib/data";
-import { useApp } from "@/context/AppContext";
 import SectionHeading from "@/components/SectionHeading";
 import SplitFeature from "@/components/SplitFeature";
 
@@ -13,9 +11,7 @@ import SplitFeature from "@/components/SplitFeature";
  * the bilingual programme and the invitation to visit, are built this way.
  */
 export default function BilingualSnapshot() {
-  const { goTo } = useApp();
-
-  return (
+    return (
     <SplitFeature
       src="/home/learning-2.jpg"
       alt="Two children writing side by side at a classroom table"
@@ -38,14 +34,13 @@ export default function BilingualSnapshot() {
         ))}
       </dl>
 
-      <button
-        type="button"
-        onClick={() => goTo("programs")}
+      <Link
+        href="/programs#bilingual"
         className="mt-8 flex items-center gap-1.5 text-base font-semibold text-forest transition-colors hover:text-forest-dark"
       >
         See the bilingual program
         <ArrowRight className="h-4 w-4" strokeWidth={2} />
-      </button>
+      </Link>
     </SplitFeature>
   );
 }

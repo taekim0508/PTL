@@ -10,29 +10,27 @@ type Props = {
 };
 
 /**
- * In-page anchor chips. These scroll rather than route, and they deliberately
- * never write to the hash: the hash now carries which page you are on, and an
- * anchor landing in it would read as a page that does not exist.
+ * In-page anchor chips. Now that each page is its own route, the hash is free
+ * to mean what it normally means, so these are ordinary anchors again: they
+ * can be copied, opened in a new tab, and sent to someone as
+ * /admissions#tuition. The browser does the scrolling, smoothly, via the
+ * scroll-behavior rule in globals.css.
  */
 export default function SectionNav({ items, onSelect }: Props) {
-  function jump(id: string) {
-    if (onSelect) {
-      onSelect(id);
-      return;
-    }
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
-  }
-
   return (
     <nav aria-label="On this page" className="mt-8 flex flex-wrap justify-center gap-2">
       {items.map(({ id, label }) => (
         <a
           key={id}
           href={`#${id}`}
-          onClick={(e) => {
-            e.preventDefault();
-            jump(id);
-          }}
+          onClick={
+            onSelect
+              ? (e) => {
+                  e.preventDefault();
+                  onSelect(id);
+                }
+              : undefined
+          }
           className="rounded-full border border-forest/20 bg-cream px-4 py-2 text-sm font-semibold text-forest shadow-sm transition-colors hover:border-forest/50 hover:bg-white"
         >
           {label}

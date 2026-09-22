@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { Check, Clock } from "lucide-react";
 import { programsIntro, programs, bilingual } from "@/lib/data";
@@ -17,11 +18,30 @@ function scrollToId(id: string) {
 }
 
 export default function ProgramsPage() {
-  const { openTour, goTo } = useApp();
+  const { openTour } = useApp();
   const [openId, setOpenId] = useState<string | null>(programs[0].id);
   // Opening a program collapses another, which shifts the page, so a jump that
   // changes what is open has to wait for the DOM to settle before it scrolls.
   const pendingScroll = useRef<string | null>(null);
+
+  /**
+   * Arriving on /programs#full-day should open the full-day programme, not
+   * land on a collapsed row. The home page links here that way, and so does
+   * anyone who copied the chip.
+   *
+   * The hash is never sent to the server, so it cannot be read while
+   * rendering without the server and the client disagreeing about which row
+   * is open. Reading it once after mount is the whole reason this effect
+   * exists: the URL is the external system it synchronises from.
+   */
+  useEffect(() => {
+    const hash = window.location.hash.replace(/^#/, "");
+    if (!hash || !programs.some((program) => program.id === hash)) return;
+    // Scrolling is HashScroll's job; this only decides what is open when the
+    // reader gets there.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setOpenId(hash);
+  }, []);
 
   useEffect(() => {
     const target = pendingScroll.current;
@@ -121,13 +141,9 @@ export default function ProgramsPage() {
             <button type="button" onClick={openTour} className={BTN_PRIMARY}>
               Schedule a Tour
             </button>
-            <button
-              type="button"
-              onClick={() => goTo("admissions")}
-              className={BTN_SECONDARY}
-            >
+            <Link href="/admissions#tuition" className={BTN_SECONDARY}>
               See Tuition
-            </button>
+            </Link>
           </div>
         </div>
       </Band>

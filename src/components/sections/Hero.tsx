@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { hero, valueStatements } from "@/lib/data";
 import { useApp } from "@/context/AppContext";
 import { accentMap, BTN_PRIMARY, BTN_SECONDARY } from "@/lib/icons";
@@ -15,7 +16,7 @@ import ContentPhoto from "@/components/ContentPhoto";
  * in six words. The verse follows on its own band.
  */
 export default function Hero() {
-  const { goTo, openTour } = useApp();
+  const { openTour } = useApp();
 
   return (
     <section className="mx-auto max-w-7xl px-5 pb-14 pt-10 sm:px-8 sm:pt-14">
@@ -41,13 +42,9 @@ export default function Hero() {
             <button type="button" onClick={openTour} className={BTN_PRIMARY}>
               Schedule a Tour
             </button>
-            <button
-              type="button"
-              onClick={() => goTo("programs")}
-              className={BTN_SECONDARY}
-            >
+            <Link href="/programs" className={BTN_SECONDARY}>
               Explore Programs
-            </button>
+            </Link>
           </div>
         </div>
 

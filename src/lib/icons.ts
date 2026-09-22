@@ -1,34 +1,3 @@
-import {
-  ArrowRight,
-  Check,
-  ChevronDown,
-  Clock,
-  Mail,
-  MapPin,
-  Menu,
-  MessageSquare,
-  Phone,
-  X,
-  type LucideIcon,
-} from "lucide-react";
-
-/**
- * Only functional icons ship: things that mark an action or a piece of contact
- * data. Decorative glyphs are gone; sections are marked by the accent rule.
- */
-export const functionalIcons: Record<string, LucideIcon> = {
-  "arrow-right": ArrowRight,
-  check: Check,
-  "chevron-down": ChevronDown,
-  clock: Clock,
-  mail: Mail,
-  "map-pin": MapPin,
-  menu: Menu,
-  "message-square": MessageSquare,
-  phone: Phone,
-  x: X,
-};
-
 /**
  * Accent tones drawn from the PTL Treehouse logo palette.
  *
@@ -84,9 +53,6 @@ export type AccentName = keyof typeof accentMap;
 
 /** The card recipe every raised surface on the site shares. */
 export const CARD = "rounded-soft border border-forest/12 bg-white shadow-sm";
-
-/** The same recipe without a fill, for cards that carry an accent tint. */
-export const CARD_BARE = "rounded-soft border border-forest/12 shadow-sm";
 
 /** The two button recipes. Nothing on the site invents a third. */
 export const BTN_PRIMARY =

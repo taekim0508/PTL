@@ -1,3 +1,8 @@
+/**
+ * Every page is a real route. The hash is deliberately left free so it can
+ * carry in-page anchors again: /admissions#tuition goes to the tuition table,
+ * not the top of the page.
+ */
 export type NavSection =
   | "home"
   | "about"
@@ -8,20 +13,37 @@ export type NavSection =
   | "faq"
   | "contact";
 
+export type NavItem = {
+  label: string;
+  section: NavSection;
+  href: string;
+};
+
 /**
  * Nav labels name the page they open. "FAQ" replaced "Parent Resources"
  * because the page it leads to is titled Frequently Asked Questions and
  * contains nothing else; the old label promised a library that isn't there.
  */
-export const navItems: { label: string; section: NavSection }[] = [
-  { label: "About", section: "about" },
-  { label: "Our Approach", section: "approach" },
-  { label: "Programs", section: "programs" },
-  { label: "Daily Life", section: "daily-life" },
-  { label: "Admissions", section: "admissions" },
-  { label: "FAQ", section: "faq" },
-  { label: "Contact", section: "contact" },
+export const navItems: NavItem[] = [
+  { label: "About", section: "about", href: "/about" },
+  { label: "Our Approach", section: "approach", href: "/our-approach" },
+  { label: "Programs", section: "programs", href: "/programs" },
+  { label: "Daily Life", section: "daily-life", href: "/daily-life" },
+  { label: "Admissions", section: "admissions", href: "/admissions" },
+  { label: "FAQ", section: "faq", href: "/faq" },
+  { label: "Contact", section: "contact", href: "/contact" },
 ];
+
+/**
+ * The canonical origin, used for metadata, the sitemap, and share cards.
+ *
+ * Set NEXT_PUBLIC_SITE_URL in the Vercel project when the school moves to its
+ * own domain. Getting this wrong does not break the site, it just points
+ * every canonical link and share card at the old address, which is the kind
+ * of thing nobody notices for a month.
+ */
+export const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://ptl-green.vercel.app";
 
 export const contactInfo = {
   name: "PTL Treehouse Early Learning Center",

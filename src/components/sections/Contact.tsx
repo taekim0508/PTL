@@ -1,5 +1,3 @@
-"use client";
-
 import { MapPin, Phone, Mail, MessageSquare, Clock } from "lucide-react";
 import { contactInfo, keyFacts } from "@/lib/data";
 import { InstagramIcon } from "@/components/SocialIcons";

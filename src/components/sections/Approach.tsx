@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { approachIntro, pillars } from "@/lib/data";
@@ -24,7 +25,7 @@ const rowTones = [
 ];
 
 export default function Approach() {
-  const { openTour, goTo } = useApp();
+  const { openTour } = useApp();
 
   return (
     <>
@@ -144,14 +145,13 @@ export default function Approach() {
           <button type="button" onClick={openTour} className={`${BTN_PRIMARY} mt-7`}>
             Schedule a Tour
           </button>
-          <button
-            type="button"
-            onClick={() => goTo("daily-life")}
-            className="mx-auto mt-6 flex items-center gap-1.5 text-base font-semibold text-forest transition-colors hover:text-forest-dark"
+          <Link
+            href="/daily-life"
+            className="mx-auto mt-6 flex w-fit items-center gap-1.5 text-base font-semibold text-forest transition-colors hover:text-forest-dark"
           >
             See how it fills a day
             <ArrowRight className="h-4 w-4" strokeWidth={2} />
-          </button>
+          </Link>
         </div>
       </section>
     </>

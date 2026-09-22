@@ -1,5 +1,3 @@
-"use client";
-
 import { faqIntro, faqCategories, faqCloser, contactInfo } from "@/lib/data";
 import Band from "@/components/Band";
 import PageHeader from "@/components/PageHeader";

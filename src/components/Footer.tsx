@@ -1,7 +1,9 @@
 "use client";
 
+import Link from "next/link";
 import { MapPin, Phone, Mail } from "lucide-react";
 import { contactInfo, navItems, tagline } from "@/lib/data";
+import { BTN_ON_FOREST } from "@/lib/icons";
 import { useApp } from "@/context/AppContext";
 import Logo from "@/components/Logo";
 import { InstagramIcon } from "@/components/SocialIcons";
@@ -14,7 +16,7 @@ const telHref = `tel:${contactInfo.phone.replace(/-/g, "")}`;
  * last content section from bleeding into the site chrome.
  */
 export default function Footer() {
-  const { openTour, goTo } = useApp();
+  const { openTour } = useApp();
 
   return (
     <footer className="on-forest bg-forest-deep text-cream">
@@ -32,7 +34,7 @@ export default function Footer() {
             <button
               type="button"
               onClick={openTour}
-              className="mt-6 rounded-full bg-cream px-6 py-3 text-base font-semibold text-forest shadow-sm transition-colors hover:bg-gold-soft"
+              className={`${BTN_ON_FOREST} mt-6`}
             >
               Schedule a Tour
             </button>
@@ -43,15 +45,11 @@ export default function Footer() {
               Explore
             </h2>
             <ul className="mt-5 space-y-2.5 text-base text-cream/80">
-              {navItems.map(({ label, section }) => (
+              {navItems.map(({ label, section, href }) => (
                 <li key={section}>
-                  <button
-                    type="button"
-                    onClick={() => goTo(section)}
-                    className="transition-colors hover:text-cream"
-                  >
+                  <Link href={href} className="transition-colors hover:text-cream">
                     {label}
-                  </button>
+                  </Link>
                 </li>
               ))}
             </ul>

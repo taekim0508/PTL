@@ -1,8 +1,6 @@
-"use client";
-
+import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { homeFoundations, tagline } from "@/lib/data";
-import { useApp } from "@/context/AppContext";
 import SectionHeading from "@/components/SectionHeading";
 
 /**
@@ -11,9 +9,7 @@ import SectionHeading from "@/components/SectionHeading";
  * page uses, and the page gains a hard break at its midpoint.
  */
 export default function Foundations() {
-  const { goTo } = useApp();
-
-  return (
+    return (
     <section className="on-forest bg-forest py-16 text-cream sm:py-20 lg:py-24">
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <SectionHeading
@@ -22,14 +18,13 @@ export default function Foundations() {
           title="The PTL Difference"
           lead="Three pillars hold up everything that happens here, from the first hour of the morning to the last minute before pickup."
           action={
-            <button
-              type="button"
-              onClick={() => goTo("approach")}
+            <Link
+              href="/our-approach"
               className="flex items-center gap-1.5 text-base font-semibold text-gold-soft transition-colors hover:text-cream"
             >
               See our approach
               <ArrowRight className="h-4 w-4" strokeWidth={2} />
-            </button>
+            </Link>
           }
         />
 
