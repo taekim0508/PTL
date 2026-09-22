@@ -1,5 +1,5 @@
 import { homeFoundations } from "@/lib/data";
-import { accentMap } from "@/lib/icons";
+import { accentMap, CARD } from "@/lib/icons";
 
 export default function Foundations() {
   return (
@@ -13,16 +13,19 @@ export default function Foundations() {
           these three foundational pillars.
         </p>
 
-        <div className="mt-10 grid items-start gap-6 md:grid-cols-3">
-          {homeFoundations.map(({ label, line, accent }) => {
+        <div className="mt-10 grid items-start gap-5 md:grid-cols-3">
+          {homeFoundations.map(({ label, line, accent }, index) => {
             const tone = accentMap[accent] ?? accentMap.green;
             return (
-              <div
-                key={label}
-                className="flex h-full flex-col rounded-soft border border-forest/10 bg-cream p-7 shadow-sm"
-              >
-                <span aria-hidden className={`block h-1 w-10 rounded-full ${tone.rule}`} />
-                <h3 className="mt-4 font-display text-2xl font-semibold leading-tight text-forest">
+              <div key={label} className={`${CARD} ${tone.card} flex h-full flex-col p-7`}>
+                <span aria-hidden className={`block h-1 w-10 rounded-full ${tone.bar}`} />
+                <p
+                  aria-hidden
+                  className={`mt-3 font-display text-sm font-semibold tracking-[0.2em] ${tone.text}`}
+                >
+                  0{index + 1}
+                </p>
+                <h3 className="mt-1 font-display text-2xl font-semibold leading-tight text-forest">
                   {label}
                 </h3>
                 <p className="mt-3 flex-1 text-base leading-relaxed text-charcoal/70">

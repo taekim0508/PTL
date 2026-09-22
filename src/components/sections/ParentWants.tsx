@@ -1,5 +1,5 @@
 import { parentWants } from "@/lib/data";
-import IconGrid from "@/components/IconGrid";
+import ItemGrid from "@/components/ItemGrid";
 
 export default function ParentWants() {
   return (
@@ -12,9 +12,8 @@ export default function ParentWants() {
       </p>
 
       <div className="mt-10">
-        <IconGrid
+        <ItemGrid
           items={parentWants}
-          variant="plain"
           columns="sm:grid-cols-2 lg:grid-cols-3"
         />
       </div>

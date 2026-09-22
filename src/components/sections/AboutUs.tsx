@@ -1,8 +1,8 @@
 import { aboutIntro, feelStatements, mission, vision, team } from "@/lib/data";
-import { iconMap, accentMap } from "@/lib/icons";
+import { accentMap, CARD } from "@/lib/icons";
 import PageHeader from "@/components/PageHeader";
 import SectionNav from "@/components/SectionNav";
-import IconGrid from "@/components/IconGrid";
+import ItemGrid from "@/components/ItemGrid";
 import ContentPhoto from "@/components/ContentPhoto";
 
 export default function AboutUs() {
@@ -39,7 +39,7 @@ export default function AboutUs() {
             We believe children learn best when they feel
           </h2>
           <div className="mt-8">
-            <IconGrid items={feelStatements} />
+            <ItemGrid items={feelStatements} />
           </div>
         </div>
 
@@ -68,20 +68,18 @@ export default function AboutUs() {
         <p className="mt-3 text-center text-lg text-charcoal/70">{vision.lead}</p>
 
         <div className="mt-8 grid gap-5 sm:grid-cols-3">
-          {vision.loves.map(({ label, icon, accent }) => {
-            const Icon = iconMap[icon];
+          {vision.loves.map(({ label, accent }) => {
             const tone = accentMap[accent];
             return (
               <div
                 key={label}
-                className="rounded-soft border border-forest/10 bg-cream px-6 py-8 text-center shadow-sm"
+                className={`${CARD} ${tone.card} px-6 py-8 text-center`}
               >
                 <span
                   aria-hidden
-                  className={`mx-auto block h-1 w-10 rounded-full ${tone.rule}`}
+                  className={`mx-auto block h-1 w-10 rounded-full ${tone.bar}`}
                 />
-                <p className="mt-4 flex items-center justify-center gap-2.5 font-display text-2xl font-semibold text-forest">
-                  <Icon aria-hidden className={`h-5 w-5 shrink-0 ${tone.text}`} strokeWidth={1.75} />
+                <p className="mt-4 font-display text-2xl font-semibold text-forest">
                   {label}
                 </p>
               </div>
@@ -114,7 +112,7 @@ export default function AboutUs() {
               {team.members.map(({ name, role }) => (
                 <li
                   key={name}
-                  className="rounded-soft border border-forest/10 bg-cream px-6 py-5 shadow-sm"
+                  className="rounded-soft border border-forest/10 bg-white px-6 py-5 shadow-sm"
                 >
                   <p className="font-display text-2xl font-semibold text-forest">{name}</p>
                   <p className="mt-1 text-base text-charcoal/65">{role}</p>

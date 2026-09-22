@@ -5,14 +5,13 @@ export const admissionsIntro = {
 };
 
 export const admissionsSteps = [
-  { step: 1, label: "Schedule a tour", icon: "calendar-check" },
+  { step: 1, label: "Schedule a tour" },
   {
     step: 2,
     label: "Visit our classrooms, meet our teachers, and ask questions",
-    icon: "door-open",
   },
-  { step: 3, label: "Complete registration paperwork", icon: "file-text" },
-  { step: 4, label: "Welcome to the PTL Treehouse family", icon: "party-popper" },
+  { step: 3, label: "Complete registration paperwork" },
+  { step: 4, label: "Welcome to the PTL Treehouse family" },
 ];
 
 export const registrationFee = {

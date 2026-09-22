@@ -31,7 +31,7 @@ export default function BilingualSnapshot() {
             {bilingual.schedule.map(({ label, line }) => (
               <div
                 key={label}
-                className="rounded-soft border border-cream/15 bg-cream/5 p-5"
+                className="rounded-soft border border-cream/15 bg-cream/5 p-6"
               >
                 <p className="text-sm font-semibold uppercase tracking-wide text-gold-soft">
                   {label}

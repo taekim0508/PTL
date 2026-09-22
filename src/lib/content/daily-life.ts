@@ -8,16 +8,18 @@ export const dayParts = [
   {
     id: "arrival",
     label: "Morning Arrival",
-    icon: "sunrise",
     accent: "gold",
+    image: null as string | null,
+    imageAlt: "Morning drop-off",
     body: "Children are welcomed into a safe and loving environment where they begin their day through free exploration and individual activities.",
     points: [],
   },
   {
     id: "circle-time",
     label: "Circle Time & Devotion",
-    icon: "cross",
     accent: "sky",
+    image: null as string | null,
+    imageAlt: "Circle time",
     body: "Children gather together to:",
     points: [
       "Pray",
@@ -30,8 +32,9 @@ export const dayParts = [
   {
     id: "learning-through-play",
     label: "Learning Through Play",
-    icon: "blocks",
     accent: "green",
+    image: "/home/activities-3.jpg" as string | null,
+    imageAlt: "Children painting with watercolors",
     body: "Children participate in:",
     points: [
       "Literacy activities",
@@ -46,8 +49,9 @@ export const dayParts = [
   {
     id: "outdoor",
     label: "Outdoor Exploration",
-    icon: "trees",
     accent: "bark",
+    image: "/home/playground.jpg" as string | null,
+    imageAlt: "A swing on the playground",
     body: "We believe children need daily opportunities to move, explore, and connect with nature. Children enjoy:",
     points: [
       "Playground activities",
@@ -111,31 +115,26 @@ export const enrichmentClasses = [
   {
     label: "Yoga",
     line: "Developing mindfulness and body awareness.",
-    icon: "person-standing",
     accent: "sky",
   },
   {
     label: "Handbells",
     line: "Building rhythm, listening skills, and teamwork.",
-    icon: "bell",
     accent: "gold",
   },
   {
     label: "Drawing",
     line: "Encouraging creativity and self-expression.",
-    icon: "pencil",
     accent: "blush",
   },
   {
     label: "Movement Class",
     line: "Strengthening coordination and confidence.",
-    icon: "activity",
     accent: "green",
   },
   {
     label: "TPR Language Fun",
     line: "Learning language through movement and play.",
-    icon: "message-circle",
     accent: "bark",
   },
 ];

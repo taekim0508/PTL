@@ -32,7 +32,7 @@ export default function ProgramPreview() {
             environment.
           </p>
 
-          <div className="mt-6 overflow-hidden rounded-soft border border-forest/10 bg-cream shadow-sm">
+          <div className="mt-6 overflow-hidden rounded-soft border border-forest/10 bg-white shadow-sm">
             {programs.map((program, index) => (
               <div
                 key={program.id}
@@ -62,9 +62,10 @@ export default function ProgramPreview() {
 
         <div className="space-y-3">
           <ContentPhoto
-            alt="Hands-on learning at PTL Treehouse"
-            placeholder="Children at a learning center"
+            src="/home/learning.jpg"
+            alt="A child working with a colorful counting abacus"
             className="aspect-[4/3]"
+            sizes="(max-width: 1024px) 100vw, 46vw"
           />
           <p className="text-base leading-relaxed text-charcoal/65">
             Hands-on projects, language-rich lessons, and joyful classroom

@@ -8,7 +8,6 @@ export type FaqItem = {
 export type FaqCategory = {
   id: string;
   label: string;
-  icon: string;
   items: FaqItem[];
 };
 
@@ -21,7 +20,6 @@ export const faqCategories: FaqCategory[] = [
   {
     id: "general",
     label: "General Information",
-    icon: "house",
     items: [
       {
         q: "What ages do you accept?",
@@ -64,7 +62,6 @@ export const faqCategories: FaqCategory[] = [
   {
     id: "curriculum",
     label: "Curriculum & Learning",
-    icon: "book-open",
     items: [
       {
         q: "What is your core value?",
@@ -122,7 +119,6 @@ export const faqCategories: FaqCategory[] = [
   {
     id: "safety",
     label: "Safety & Health",
-    icon: "shield-check",
     items: [
       {
         q: "How do you keep children safe?",
@@ -141,7 +137,6 @@ export const faqCategories: FaqCategory[] = [
   {
     id: "enrollment",
     label: "Enrollment & Fees",
-    icon: "wallet",
     items: [
       {
         q: "How do I enroll my child?",
@@ -160,7 +155,6 @@ export const faqCategories: FaqCategory[] = [
   {
     id: "involvement",
     label: "Parent Involvement",
-    icon: "users",
     items: [
       {
         q: "Can I visit during the day?",
@@ -179,7 +173,6 @@ export const faqCategories: FaqCategory[] = [
   {
     id: "activities",
     label: "Programs & Activities",
-    icon: "palette",
     items: [
       {
         q: "Do you provide meals and snacks?",

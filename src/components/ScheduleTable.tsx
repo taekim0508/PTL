@@ -7,7 +7,7 @@ type Props = {
 
 export default function ScheduleTable({ heading, caption, note, rows }: Props) {
   return (
-    <div className="overflow-hidden rounded-soft border border-forest/10 bg-cream shadow-sm">
+    <div className="overflow-hidden rounded-soft border border-forest/10 bg-white shadow-sm">
       <div className="border-b border-forest/10 bg-cream-soft px-5 py-4 sm:px-6">
         <h3 className="font-display text-xl font-semibold text-forest">{heading}</h3>
         {caption ? (

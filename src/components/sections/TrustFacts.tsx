@@ -1,5 +1,5 @@
 import { valueStatements, keyFacts } from "@/lib/data";
-import IconGrid from "@/components/IconGrid";
+import ItemGrid from "@/components/ItemGrid";
 
 export default function TrustFacts() {
   return (
@@ -10,7 +10,7 @@ export default function TrustFacts() {
         </h2>
 
         <div className="mt-10">
-          <IconGrid items={valueStatements} variant="plain" columns="sm:grid-cols-3 lg:grid-cols-6" />
+          <ItemGrid items={valueStatements} columns="sm:grid-cols-3 lg:grid-cols-6" />
         </div>
 
         <dl className="mt-12 grid gap-x-8 gap-y-4 border-t border-forest/10 pt-8 sm:grid-cols-2 lg:grid-cols-3">

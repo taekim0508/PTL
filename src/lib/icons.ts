@@ -1,112 +1,52 @@
 import {
-  Activity,
-  Baby,
-  Bell,
-  Blocks,
-  BookOpen,
-  CalendarCheck,
-  Cross,
-  DoorOpen,
-  FileText,
-  Footprints,
-  GraduationCap,
-  Handshake,
-  HandHeart,
-  Heart,
-  HeartHandshake,
-  House,
-  Languages,
-  MessageCircle,
-  Mountain,
-  Palette,
-  PartyPopper,
-  Pencil,
-  PersonStanding,
-  ShieldCheck,
-  Sparkles,
-  Sprout,
-  Sunrise,
-  Telescope,
-  Trees,
-  TreePine,
-  Users,
-  Wallet,
+  ArrowRight,
+  Check,
+  ChevronDown,
+  Clock,
+  Mail,
+  MapPin,
+  Menu,
+  MessageSquare,
+  Phone,
+  X,
   type LucideIcon,
 } from "lucide-react";
 
-export const iconMap: Record<string, LucideIcon> = {
-  activity: Activity,
-  baby: Baby,
-  bell: Bell,
-  blocks: Blocks,
-  "book-open": BookOpen,
-  "calendar-check": CalendarCheck,
-  cross: Cross,
-  "door-open": DoorOpen,
-  "file-text": FileText,
-  footprints: Footprints,
-  "graduation-cap": GraduationCap,
-  handshake: Handshake,
-  "hand-heart": HandHeart,
-  heart: Heart,
-  "heart-handshake": HeartHandshake,
-  house: House,
-  languages: Languages,
-  "message-circle": MessageCircle,
-  mountain: Mountain,
-  palette: Palette,
-  "party-popper": PartyPopper,
-  pencil: Pencil,
-  "person-standing": PersonStanding,
-  "shield-check": ShieldCheck,
-  sparkles: Sparkles,
-  sprout: Sprout,
-  sunrise: Sunrise,
-  telescope: Telescope,
-  trees: Trees,
-  "tree-pine": TreePine,
-  users: Users,
-  wallet: Wallet,
+/**
+ * Only functional icons ship: things that mark an action or a piece of contact
+ * data. Decorative glyphs are gone; sections are marked by the accent bar.
+ */
+export const functionalIcons: Record<string, LucideIcon> = {
+  "arrow-right": ArrowRight,
+  check: Check,
+  "chevron-down": ChevronDown,
+  clock: Clock,
+  mail: Mail,
+  "map-pin": MapPin,
+  menu: Menu,
+  "message-square": MessageSquare,
+  phone: Phone,
+  x: X,
 };
 
-/** Accent tones drawn from the PTL Treehouse logo palette. */
-export const accentMap: Record<string, { chip: string; rule: string; num: string; text: string }> = {
-  green: {
-    chip: "bg-leaf/15 text-leaf-dark",
-    rule: "bg-leaf",
-    num: "text-leaf/45",
-    text: "text-leaf-dark",
-  },
-  gold: {
-    chip: "bg-gold/15 text-gold-dark",
-    rule: "bg-gold",
-    num: "text-gold/50",
-    text: "text-gold-dark",
-  },
-  rose: {
-    chip: "bg-rose/15 text-rose",
-    rule: "bg-rose",
-    num: "text-rose/50",
-    text: "text-rose",
-  },
-  sky: {
-    chip: "bg-sky/30 text-sage-dark",
-    rule: "bg-sage",
-    num: "text-sage/45",
-    text: "text-sage-dark",
-  },
-  blush: {
-    chip: "bg-blush/40 text-bark-dark",
-    rule: "bg-blush",
-    num: "text-bark/35",
-    text: "text-bark-dark",
-  },
-  bark: {
-    chip: "bg-bark/15 text-bark-dark",
-    rule: "bg-bark",
-    num: "text-bark/40",
-    text: "text-bark-dark",
-  },
+/**
+ * Accent tones drawn from the PTL Treehouse logo palette. One entry per family:
+ * `bar` marks a section, `card` tints the surface it sits on, `text` is for the
+ * rare bit of type that needs to carry the accent.
+ */
+export const accentMap: Record<
+  string,
+  { bar: string; card: string; text: string }
+> = {
+  green: { bar: "bg-leaf", card: "bg-leaf/8", text: "text-leaf-dark" },
+  gold: { bar: "bg-gold", card: "bg-gold/10", text: "text-gold-dark" },
+  rose: { bar: "bg-rose", card: "bg-rose/8", text: "text-rose" },
+  sky: { bar: "bg-sage", card: "bg-sky/20", text: "text-sage-dark" },
+  blush: { bar: "bg-blush", card: "bg-blush/25", text: "text-bark-dark" },
+  bark: { bar: "bg-bark", card: "bg-bark/8", text: "text-bark-dark" },
 };
 
 export type AccentName = keyof typeof accentMap;
+
+/** The card recipe every surface on the site shares. */
+export const CARD = "rounded-soft border border-forest/10 shadow-sm";

@@ -21,73 +21,64 @@ export const hero = {
 
 /** "Quick Value Statements" from the content doc. */
 export const valueStatements = [
-  { label: "Christian Values", icon: "cross" },
-  { label: "Korean-English Bilingual", icon: "languages" },
-  { label: "Play-Based Learning", icon: "palette" },
-  { label: "Ages 2.5 to 5", icon: "baby" },
-  { label: "Small Family Environment", icon: "heart" },
-  { label: "Kindergarten Ready", icon: "graduation-cap" },
+  { label: "Christian Values" },
+  { label: "Korean-English Bilingual" },
+  { label: "Play-Based Learning" },
+  { label: "Ages 2.5 to 5" },
+  { label: "Small Family Environment" },
+  { label: "Kindergarten Ready" },
 ];
 
 export const parentWants = [
   {
     label: "Feel loved",
     line: "Your child is known, valued, and cared for like family.",
-    icon: "heart",
   },
   {
     label: "Make friends",
     line: "We help children build meaningful friendships that last.",
-    icon: "handshake",
   },
   {
     label: "Build confidence",
     line: "Encourage them to try, explore, and believe in themselves.",
-    icon: "sprout",
   },
   {
     label: "Love learning",
     line: "Hands-on, play-based learning that sparks curiosity and joy.",
-    icon: "book-open",
   },
   {
     label: "Develop faith",
     line: "Growing in God's love through prayer, worship, and Bible lessons.",
-    icon: "cross",
   },
   {
     label: "Be ready for Kindergarten",
     line: "Kindergarten-ready academically, socially, and emotionally.",
-    icon: "graduation-cap",
   },
 ];
 
 export const childOutcomes = [
-  { label: "Confident", line: "To try new things and believe in themselves.", icon: "sparkles", accent: "green" },
-  { label: "Kind", line: "To show compassion and build friendships.", icon: "heart-handshake", accent: "blush" },
-  { label: "Curious", line: "To explore, wonder, and discover.", icon: "telescope", accent: "sky" },
-  { label: "Independent", line: "To solve problems and take responsibility.", icon: "footprints", accent: "gold" },
-  { label: "Ready", line: "To thrive in Kindergarten and beyond.", icon: "graduation-cap", accent: "bark" },
-  { label: "Rooted", line: "To develop a strong foundation of faith.", icon: "tree-pine", accent: "green" },
+  { label: "Confident", line: "To try new things and believe in themselves.", accent: "green" },
+  { label: "Kind", line: "To show compassion and build friendships.", accent: "blush" },
+  { label: "Curious", line: "To explore, wonder, and discover.", accent: "sky" },
+  { label: "Independent", line: "To solve problems and take responsibility.", accent: "gold" },
+  { label: "Ready", line: "To thrive in Kindergarten and beyond.", accent: "bark" },
+  { label: "Rooted", line: "To develop a strong foundation of faith.", accent: "green" },
 ];
 
 export const homeFoundations = [
   {
     label: "Play to Learn",
     line: "Children learn through hands-on experiences that support intellectual, emotional, physical, and creative growth.",
-    icon: "sprout",
     accent: "green",
   },
   {
     label: "Pray to Learn",
     line: "Faith is part of daily life through worship, Bible stories, devotions, prayer, and gratitude before meals.",
-    icon: "cross",
     accent: "gold",
   },
   {
     label: "Prepare to Learn",
     line: "We help children build confidence, independence, and the academic and social foundations they need for kindergarten.",
-    icon: "graduation-cap",
     accent: "rose",
   },
 ];

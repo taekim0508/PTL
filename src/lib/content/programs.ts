@@ -4,7 +4,7 @@ export const programsIntro =
 export const programs = [
   {
     id: "morning",
-    image: null,
+    image: "/home/activities-2.jpg" as string | null,
     imageAlt: "Morning classroom",
     name: "Morning Preschool",
     hours: "8:30 AM – 12:00 PM",

@@ -6,11 +6,12 @@ import {
   weeklyEnrichment,
   enrichmentClasses,
 } from "@/lib/data";
-import { iconMap, accentMap } from "@/lib/icons";
+import { accentMap, CARD } from "@/lib/icons";
 import PageHeader from "@/components/PageHeader";
 import SectionNav from "@/components/SectionNav";
 import ScheduleTable from "@/components/ScheduleTable";
-import IconGrid from "@/components/IconGrid";
+import ItemGrid from "@/components/ItemGrid";
+import ContentPhoto from "@/components/ContentPhoto";
 
 export default function DailyLife() {
   return (
@@ -31,17 +32,21 @@ export default function DailyLife() {
 
       <section id="a-day-at-ptl" className="mx-auto max-w-7xl px-5 py-14 sm:px-8">
         <div className="grid gap-6 md:grid-cols-2">
-          {dayParts.map(({ id, label, icon, accent, body, points }) => {
-            const Icon = iconMap[icon];
+          {dayParts.map(({ id, label, accent, body, points, image, imageAlt }) => {
             const tone = accentMap[accent];
             return (
-              <div
-                key={id}
-                className="flex flex-col rounded-soft border border-forest/10 bg-cream p-7 shadow-sm"
-              >
-                <span aria-hidden className={`block h-1 w-10 rounded-full ${tone.rule}`} />
-                <h2 className="mt-4 flex items-center gap-2.5 font-display text-2xl font-semibold text-forest">
-                  <Icon aria-hidden className={`h-5 w-5 shrink-0 ${tone.text}`} strokeWidth={1.75} />
+              <div key={id} className={`${CARD} ${tone.card} flex flex-col p-7`}>
+                <ContentPhoto
+                  src={image}
+                  alt={imageAlt}
+                  className="aspect-[16/9] w-full"
+                  sizes="(max-width: 768px) 100vw, 45vw"
+                />
+                <span
+                  aria-hidden
+                  className={`mt-6 block h-1 w-10 rounded-full ${tone.bar}`}
+                />
+                <h2 className="mt-3 font-display text-2xl font-semibold text-forest">
                   {label}
                 </h2>
                 <p className="mt-3 text-base leading-relaxed text-charcoal/75">{body}</p>
@@ -51,7 +56,7 @@ export default function DailyLife() {
                       <li key={point} className="flex items-start gap-2.5">
                         <span
                           aria-hidden
-                          className={`mt-2 h-1.5 w-1.5 shrink-0 rounded-full ${tone.rule}`}
+                          className={`mt-2 h-1.5 w-1.5 shrink-0 rounded-full ${tone.bar}`}
                         />
                         <span className="text-base leading-relaxed text-charcoal/75">
                           {point}
@@ -85,10 +90,7 @@ export default function DailyLife() {
 
         <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-5">
           {weeklyEnrichment.map(({ day, activity }) => (
-            <div
-              key={day}
-              className="rounded-soft border border-forest/10 bg-cream p-5 text-center shadow-sm"
-            >
+            <div key={day} className={`${CARD} bg-white p-5 text-center`}>
               <p className="text-xs font-semibold uppercase tracking-[0.18em] text-gold-dark">
                 {day}
               </p>
@@ -100,11 +102,7 @@ export default function DailyLife() {
         </div>
 
         <div className="mt-12">
-          <IconGrid
-            items={enrichmentClasses}
-            variant="inline"
-            columns="sm:grid-cols-2 lg:grid-cols-3"
-          />
+          <ItemGrid items={enrichmentClasses} columns="sm:grid-cols-2 lg:grid-cols-3" />
         </div>
       </section>
     </>

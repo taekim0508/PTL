@@ -33,7 +33,7 @@ export default function Testimonials() {
             return (
               <div
                 key={attribution}
-                className="flex h-full flex-col rounded-soft border border-forest/10 bg-cream p-6 shadow-sm"
+                className="flex h-full flex-col rounded-soft border border-forest/10 bg-white p-6 shadow-sm"
               >
                 <p className="flex-1 text-base leading-relaxed text-charcoal/75">
                   &ldquo;{activeQuote}&rdquo;

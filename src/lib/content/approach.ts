@@ -7,8 +7,9 @@ export const pillars = [
   {
     id: "play",
     label: "Play to Learn",
-    icon: "sprout",
     accent: "green",
+    image: "/home/activities.jpg" as string | null,
+    imageAlt: "Children and a teacher making paper collages together",
     lead: "We believe children learn best through play. Play allows children to:",
     points: [
       "Develop creativity",
@@ -24,8 +25,9 @@ export const pillars = [
   {
     id: "pray",
     label: "Pray to Learn",
-    icon: "cross",
     accent: "gold",
+    image: null as string | null,
+    imageAlt: "Devotion time",
     lead: "Faith is naturally woven throughout our day. Children participate in:",
     points: [
       "Daily prayer",
@@ -40,8 +42,9 @@ export const pillars = [
   {
     id: "prepare",
     label: "Prepare to Learn",
-    icon: "graduation-cap",
     accent: "sky",
+    image: "/home/learning-2.jpg" as string | null,
+    imageAlt: "Two children writing side by side",
     lead: "Kindergarten readiness is about much more than academics. We intentionally help children develop:",
     points: [
       "Confidence",

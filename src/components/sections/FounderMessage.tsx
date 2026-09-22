@@ -11,7 +11,7 @@ export default function FounderMessage() {
   return (
     <section className="mx-auto max-w-7xl px-5 py-16 sm:px-8">
       <div className="grid gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:items-start">
-        <div className="rounded-soft border border-forest/10 bg-cream p-7 shadow-sm sm:p-9">
+        <div className="rounded-soft border border-forest/10 bg-white p-7 shadow-sm sm:p-9">
           <div className="flex flex-wrap items-start justify-between gap-4">
             <div>
               <h2 className="font-display text-3xl font-semibold text-forest sm:text-4xl">

@@ -1,7 +1,6 @@
 "use client";
 
 import { faqIntro, faqCategories, faqCloser, contactInfo } from "@/lib/data";
-import { iconMap } from "@/lib/icons";
 import PageHeader from "@/components/PageHeader";
 import SectionNav from "@/components/SectionNav";
 import Accordion from "@/components/Accordion";
@@ -20,14 +19,12 @@ export default function ParentResources() {
       </PageHeader>
 
       <div className="mx-auto max-w-4xl space-y-12 px-5 py-14 sm:px-8">
-        {faqCategories.map(({ id, label, icon, items }) => {
-          const Icon = iconMap[icon];
+        {faqCategories.map(({ id, label, items }) => {
           return (
             <section key={id} id={id}>
               <div>
                 <span aria-hidden className="block h-1 w-10 rounded-full bg-gold" />
-                <h2 className="mt-3 flex items-center gap-2.5 font-display text-2xl font-semibold text-forest">
-                  <Icon aria-hidden className="h-5 w-5 shrink-0 text-gold-dark" strokeWidth={1.75} />
+                <h2 className="mt-3 font-display text-2xl font-semibold text-forest">
                   {label}
                 </h2>
               </div>
@@ -73,7 +70,7 @@ export default function ParentResources() {
           );
         })}
 
-        <div className="rounded-soft border border-gold-soft/70 bg-gold-soft/30 px-6 py-8 text-center sm:px-10">
+        <div className="rounded-soft border border-forest/10 bg-cream-soft px-6 py-8 text-center shadow-sm sm:px-10">
           <h2 className="font-display text-2xl font-semibold text-forest">
             {faqCloser.heading}
           </h2>

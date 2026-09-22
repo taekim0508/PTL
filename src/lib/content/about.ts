@@ -11,12 +11,12 @@ export const aboutIntro = {
 };
 
 export const feelStatements = [
-  { label: "Safe", icon: "shield-check" },
-  { label: "Loved", icon: "heart" },
-  { label: "Encouraged", icon: "hand-heart" },
-  { label: "Accepted", icon: "users" },
-  { label: "Challenged", icon: "mountain" },
-  { label: "Celebrated", icon: "party-popper" },
+  { label: "Safe" },
+  { label: "Loved" },
+  { label: "Encouraged" },
+  { label: "Accepted" },
+  { label: "Challenged" },
+  { label: "Celebrated" },
 ];
 
 export const mission = {
@@ -29,9 +29,9 @@ export const vision = {
   heading: "Our Vision",
   lead: "To raise children who:",
   loves: [
-    { label: "Love God", icon: "cross", accent: "gold" },
-    { label: "Love Learning", icon: "book-open", accent: "green" },
-    { label: "Love Others", icon: "heart-handshake", accent: "blush" },
+    { label: "Love God", accent: "gold" },
+    { label: "Love Learning", accent: "green" },
+    { label: "Love Others", accent: "blush" },
   ],
   closing:
     "and who are prepared to positively impact their families, communities, and future generations.",

@@ -8,7 +8,6 @@ import {
   registrationFee,
   requirements,
 } from "@/lib/data";
-import { iconMap } from "@/lib/icons";
 import { useApp } from "@/context/AppContext";
 import PageHeader from "@/components/PageHeader";
 import SectionNav from "@/components/SectionNav";
@@ -34,12 +33,11 @@ export default function Admissions() {
 
       <section id="how-to-enroll" className="mx-auto max-w-5xl px-5 py-14 sm:px-8">
         <ol className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {admissionsSteps.map(({ step, label, icon }) => {
-            const Icon = iconMap[icon];
+          {admissionsSteps.map(({ step, label }) => {
             return (
               <li
                 key={step}
-                className="flex h-full flex-col rounded-soft border border-forest/10 bg-cream p-6 shadow-sm"
+                className="flex h-full flex-col rounded-soft border border-forest/10 bg-white p-6 shadow-sm"
               >
                 <span aria-hidden className="block h-1 w-10 rounded-full bg-gold" />
                 <p
@@ -48,12 +46,7 @@ export default function Admissions() {
                 >
                   STEP {step}
                 </p>
-                <p className="mt-2 flex items-start gap-2.5 text-base font-semibold leading-relaxed text-forest">
-                  <Icon
-                    aria-hidden
-                    className="mt-0.5 h-5 w-5 shrink-0 text-gold-dark"
-                    strokeWidth={1.75}
-                  />
+                <p className="mt-2 text-base font-semibold leading-relaxed text-forest">
                   {label}
                 </p>
               </li>
@@ -78,7 +71,7 @@ export default function Admissions() {
             Tuition
           </h2>
 
-          <div className="mt-8 overflow-hidden rounded-soft border border-forest/10 bg-cream shadow-sm">
+          <div className="mt-8 overflow-hidden rounded-soft border border-forest/10 bg-white shadow-sm">
             <table className="w-full border-collapse text-left">
               <thead>
                 <tr className="border-b border-forest/10 bg-cream-soft">
@@ -126,7 +119,7 @@ export default function Admissions() {
             </table>
           </div>
 
-          <div className="mt-6 rounded-soft border border-forest/10 bg-cream p-6 shadow-sm">
+          <div className="mt-6 rounded-soft border border-forest/10 bg-white p-6 shadow-sm">
             <h3 className="font-display text-xl font-semibold text-forest">
               {registrationFee.heading}
             </h3>
@@ -155,7 +148,7 @@ export default function Admissions() {
           {requirements.items.map((item) => (
             <li
               key={item}
-              className="flex items-center gap-3 rounded-soft border border-forest/10 bg-cream px-5 py-4 shadow-sm"
+              className="flex items-center gap-3 rounded-soft border border-forest/10 bg-white px-5 py-4 shadow-sm"
             >
               <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-leaf/15 text-leaf-dark">
                 <Check className="h-4.5 w-4.5" strokeWidth={2.5} />

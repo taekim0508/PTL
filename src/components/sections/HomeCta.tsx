@@ -8,7 +8,7 @@ export default function HomeCta() {
 
   return (
     <section className="mx-auto max-w-7xl px-5 py-16 sm:px-8">
-      <div className="grid gap-10 rounded-soft border border-gold-soft/70 bg-gold-soft/30 px-6 py-10 sm:px-10 sm:py-12 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
+      <div className="grid gap-10 rounded-soft border border-forest/10 bg-cream-soft px-6 py-10 shadow-sm sm:px-10 sm:py-12 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
         <ContentPhoto
           alt="Children at play in a PTL Treehouse classroom"
           placeholder="A classroom moment from a PTL tour"
