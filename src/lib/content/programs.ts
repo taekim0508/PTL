@@ -4,8 +4,8 @@ export const programsIntro =
 export const programs = [
   {
     id: "morning",
-    image: "/home/girl-boy-building-blocks.webp",
-    imageAlt: "Two preschoolers building a tower together with wooden blocks",
+    image: null,
+    imageAlt: "Morning classroom",
     name: "Morning Preschool",
     hours: "8:30 AM – 12:00 PM",
     tuition: "$900",
@@ -26,8 +26,8 @@ export const programs = [
   },
   {
     id: "morning-lunch",
-    image: "/home/kids-eating.jpg",
-    imageAlt: "Preschoolers sitting together at a table eating lunch",
+    image: null,
+    imageAlt: "Lunch together",
     name: "Morning Preschool + Lunch",
     hours: "8:30 AM – 12:30 PM",
     tuition: "$1,080",
@@ -42,7 +42,7 @@ export const programs = [
   },
   {
     id: "full-day",
-    image: "/home/kids-naptime.jpg",
+    image: "/home/kids-naptime.jpg" as string | null,
     imageAlt: "Preschoolers resting on cots during quiet time",
     name: "Full-Day Program",
     hours: "8:30 AM – 3:30 PM",
@@ -60,8 +60,8 @@ export const programs = [
   },
   {
     id: "aftercare",
-    image: "/home/afterschool.avif",
-    imageAlt: "Two children walking home hand in hand with their backpacks",
+    image: null,
+    imageAlt: "Aftercare play",
     name: "Aftercare Program",
     hours: "3:30 PM – 4:00 PM",
     tuition: "$100",

@@ -62,10 +62,9 @@ export default function ProgramPreview() {
 
         <div className="space-y-3">
           <ContentPhoto
-            src="/home/girl-matching-numbers.jpg"
-            alt="A preschooler matching wooden number tiles at a classroom table"
+            alt="Hands-on learning at PTL Treehouse"
+            placeholder="Children at a learning center"
             className="aspect-[4/3]"
-            sizes="(max-width: 1024px) 100vw, 46vw"
           />
           <p className="text-base leading-relaxed text-charcoal/65">
             Hands-on projects, language-rich lessons, and joyful classroom

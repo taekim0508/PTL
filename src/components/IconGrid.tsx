@@ -3,14 +3,14 @@ import { iconMap, accentMap } from "@/lib/icons";
 export type IconGridItem = {
   label: string;
   line?: string;
-  icon: string;
+  icon?: string;
   accent?: string;
 };
 
 type Props = {
   items: IconGridItem[];
-  /** "stack" centers each item; "inline" runs the highlight down the left. */
-  variant?: "stack" | "inline";
+  /** "plain" keeps the highlight bar and drops the glyph. */
+  variant?: "stack" | "inline" | "plain";
   columns?: string;
 };
 
@@ -27,17 +27,33 @@ export default function IconGrid({
   return (
     <div className={`grid grid-cols-2 gap-x-8 gap-y-9 ${columns}`}>
       {items.map(({ label, line, icon, accent }) => {
-        const Icon = iconMap[icon];
+        const Icon = icon ? iconMap[icon] : undefined;
         const tone = accent ? accentMap[accent] : undefined;
         const rule = tone ? tone.rule : "bg-gold";
         const tint = tone ? tone.text : "text-gold-dark";
+
+        if (variant === "plain") {
+          return (
+            <div key={label} className="border-t border-forest/12 pt-4">
+              <span aria-hidden className={`block h-1 w-10 rounded-full ${rule}`} />
+              <h3 className="mt-3 font-display text-lg font-semibold text-forest">
+                {label}
+              </h3>
+              {line ? (
+                <p className="mt-1.5 text-base leading-relaxed text-charcoal/70">{line}</p>
+              ) : null}
+            </div>
+          );
+        }
 
         if (variant === "inline") {
           return (
             <div key={label} className="border-t border-forest/12 pt-4">
               <span aria-hidden className={`block h-1 w-10 rounded-full ${rule}`} />
               <h3 className="mt-3 flex items-center gap-2 font-display text-lg font-semibold text-forest">
-                <Icon aria-hidden className={`h-5 w-5 shrink-0 ${tint}`} strokeWidth={1.75} />
+                {Icon ? (
+                  <Icon aria-hidden className={`h-5 w-5 shrink-0 ${tint}`} strokeWidth={1.75} />
+                ) : null}
                 {label}
               </h3>
               {line ? (
@@ -51,7 +67,9 @@ export default function IconGrid({
           <div key={label} className="flex flex-col items-center text-center">
             <span aria-hidden className={`block h-1 w-10 rounded-full ${rule}`} />
             <h3 className="mt-3 flex items-center gap-2 font-display text-lg font-semibold leading-tight text-forest">
-              <Icon aria-hidden className={`h-5 w-5 shrink-0 ${tint}`} strokeWidth={1.75} />
+              {Icon ? (
+                <Icon aria-hidden className={`h-5 w-5 shrink-0 ${tint}`} strokeWidth={1.75} />
+              ) : null}
               {label}
             </h3>
             {line ? (

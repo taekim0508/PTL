@@ -1,5 +1,5 @@
 import { homeFoundations } from "@/lib/data";
-import { iconMap, accentMap } from "@/lib/icons";
+import { accentMap } from "@/lib/icons";
 
 export default function Foundations() {
   return (
@@ -14,8 +14,7 @@ export default function Foundations() {
         </p>
 
         <div className="mt-10 grid items-start gap-6 md:grid-cols-3">
-          {homeFoundations.map(({ label, line, icon, accent }) => {
-            const Icon = iconMap[icon];
+          {homeFoundations.map(({ label, line, accent }) => {
             const tone = accentMap[accent] ?? accentMap.green;
             return (
               <div
@@ -23,8 +22,7 @@ export default function Foundations() {
                 className="flex h-full flex-col rounded-soft border border-forest/10 bg-cream p-7 shadow-sm"
               >
                 <span aria-hidden className={`block h-1 w-10 rounded-full ${tone.rule}`} />
-                <h3 className="mt-4 flex items-center gap-2.5 font-display text-2xl font-semibold leading-tight text-forest">
-                  <Icon aria-hidden className={`h-5 w-5 shrink-0 ${tone.text}`} strokeWidth={1.75} />
+                <h3 className="mt-4 font-display text-2xl font-semibold leading-tight text-forest">
                   {label}
                 </h3>
                 <p className="mt-3 flex-1 text-base leading-relaxed text-charcoal/70">

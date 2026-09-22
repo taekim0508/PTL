@@ -10,10 +10,9 @@ export default function HomeCta() {
     <section className="mx-auto max-w-7xl px-5 py-16 sm:px-8">
       <div className="grid gap-10 rounded-soft border border-gold-soft/70 bg-gold-soft/30 px-6 py-10 sm:px-10 sm:py-12 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
         <ContentPhoto
-          src="/home/black-kid-smiling.avif"
-          alt="Preschoolers laughing together over building toys at a classroom table"
+          alt="Children at play in a PTL Treehouse classroom"
+          placeholder="A classroom moment from a PTL tour"
           className="aspect-[4/3]"
-          sizes="(max-width: 1024px) 100vw, 44vw"
         />
 
         <div>
