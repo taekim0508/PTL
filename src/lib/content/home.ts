@@ -62,15 +62,6 @@ export const parentWants = [
   },
 ];
 
-export const childOutcomes = [
-  { label: "Confident", line: "To try new things and believe in themselves.", accent: "green" },
-  { label: "Kind", line: "To show compassion and build friendships.", accent: "blush" },
-  { label: "Curious", line: "To explore, wonder, and discover.", accent: "sky" },
-  { label: "Independent", line: "To solve problems and take responsibility.", accent: "gold" },
-  { label: "Ready", line: "To thrive in Kindergarten and beyond.", accent: "bark" },
-  { label: "Rooted", line: "To develop a strong foundation of faith.", accent: "green" },
-];
-
 export const homeFoundations = [
   {
     label: "Play to Learn",

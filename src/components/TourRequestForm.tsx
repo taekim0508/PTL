@@ -8,12 +8,25 @@ const telHref = `tel:${contactInfo.phone.replace(/-/g, "")}`;
 const smsHref = `sms:${contactInfo.phone.replace(/-/g, "")}`;
 
 const inputClass =
-  "w-full rounded-soft border border-forest/20 bg-white px-4 py-2.5 text-base text-charcoal transition-colors focus:border-forest";
+  "w-full rounded-soft border border-forest/25 bg-white px-4 py-2.5 text-base text-charcoal transition-colors placeholder:text-charcoal/40 hover:border-forest/40 focus:border-forest";
 
-function Field({ label, children }: { label: string; children: ReactNode }) {
+function Field({
+  label,
+  hint,
+  children,
+}: {
+  label: string;
+  hint?: string;
+  children: ReactNode;
+}) {
   return (
     <label className="block">
-      <span className="mb-1.5 block text-sm font-semibold text-charcoal/80">{label}</span>
+      <span className="mb-1.5 block text-sm font-semibold text-charcoal/85">
+        {label}
+        {hint ? (
+          <span className="ml-1.5 font-normal text-charcoal/55">{hint}</span>
+        ) : null}
+      </span>
       {children}
     </label>
   );
@@ -26,7 +39,9 @@ type Props = {
 
 /**
  * A tour request, not a booking. Nothing here reserves a slot: the school
- * follows up to confirm, which is how PTL actually schedules tours.
+ * follows up to confirm, which is how PTL actually schedules tours. Optional
+ * fields say so on the label rather than leaving the visitor to guess which
+ * of the six they are allowed to skip.
  */
 export default function TourRequestForm({ variant = "page" }: Props) {
   const [submitted, setSubmitted] = useState(false);
@@ -46,7 +61,7 @@ export default function TourRequestForm({ variant = "page" }: Props) {
         <p className="font-display text-xl font-semibold text-forest">
           Thanks! Your request is in.
         </p>
-        <p className="max-w-sm text-base leading-relaxed text-charcoal/75">
+        <p className="max-w-sm text-base leading-relaxed text-charcoal/80">
           We&apos;ll reach out to confirm a time that works for your family. If
           you&apos;d rather talk sooner, call or text us at {contactInfo.phone}.
         </p>
@@ -63,8 +78,8 @@ export default function TourRequestForm({ variant = "page" }: Props) {
 
   return (
     <>
-      <div className="flex flex-wrap items-center gap-2.5 rounded-soft border border-forest/10 bg-white px-4 py-3">
-        <span className="text-sm font-semibold text-charcoal/75">
+      <div className="flex flex-wrap items-center gap-2.5 rounded-soft border border-forest/12 bg-cream px-4 py-3">
+        <span className="text-sm font-semibold text-charcoal/80">
           Prefer to talk now?
         </span>
         <a
@@ -81,12 +96,12 @@ export default function TourRequestForm({ variant = "page" }: Props) {
           <MessageSquare className="h-3.5 w-3.5" strokeWidth={2} />
           Text
         </a>
-        <span className="text-sm font-semibold text-charcoal/75">
+        <span className="text-sm font-semibold text-charcoal/80">
           {contactInfo.phone}
         </span>
       </div>
 
-      <form onSubmit={handleSubmit} className="mt-5 space-y-4">
+      <form onSubmit={handleSubmit} className="mt-6 space-y-4">
         <div className={isModal ? "space-y-4" : "grid gap-4 sm:grid-cols-2"}>
           <Field label="Your name">
             <input required type="text" name="name" autoComplete="name" className={inputClass} />
@@ -94,10 +109,10 @@ export default function TourRequestForm({ variant = "page" }: Props) {
           <Field label="Email">
             <input required type="email" name="email" autoComplete="email" className={inputClass} />
           </Field>
-          <Field label="Phone">
+          <Field label="Phone" hint="(optional)">
             <input type="tel" name="phone" autoComplete="tel" className={inputClass} />
           </Field>
-          <Field label="Child's age">
+          <Field label="Child's age" hint="(optional)">
             <input
               type="text"
               name="childAge"
@@ -115,13 +130,13 @@ export default function TourRequestForm({ variant = "page" }: Props) {
               ))}
             </select>
           </Field>
-          <Field label="Preferred tour date">
+          <Field label="Preferred tour date" hint="(optional)">
             <input type="date" name="tourDate" className={inputClass} />
           </Field>
         </div>
 
         {isModal ? null : (
-          <Field label="Anything you'd like us to know? (optional)">
+          <Field label="Anything you'd like us to know?" hint="(optional)">
             <textarea rows={4} name="message" className={`${inputClass} resize-none`} />
           </Field>
         )}
@@ -135,7 +150,7 @@ export default function TourRequestForm({ variant = "page" }: Props) {
 
         <p className="text-sm leading-relaxed text-charcoal/75">
           Tours run during school hours, Monday to Friday. We&apos;ll confirm your
-          time by phone or email.
+          time by phone or email. Nothing is booked until we speak.
         </p>
       </form>
     </>

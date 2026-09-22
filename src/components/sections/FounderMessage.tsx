@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 import { directorMessage } from "@/lib/data";
+import Band from "@/components/Band";
+import SectionHeading from "@/components/SectionHeading";
 import ContentPhoto from "@/components/ContentPhoto";
 
 export default function FounderMessage() {
@@ -11,23 +13,16 @@ export default function FounderMessage() {
   const langAttr = lang === "ko" ? "ko" : "en";
 
   return (
-    <section className="mx-auto max-w-7xl px-5 py-16 sm:px-8">
-      <div className="grid gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:items-start">
-        <div className="rounded-soft border border-forest/10 bg-white p-7 shadow-sm sm:p-9">
-          <div className="flex flex-wrap items-start justify-between gap-4">
-            <div>
-              <h2 className="font-display text-3xl font-semibold text-forest sm:text-4xl">
-                From Our Directors
-              </h2>
-              <p className="mt-2 font-accent text-3xl text-gold">
-                {directorMessage.heading}
-              </p>
-            </div>
+    <Band tone="band" size="lg">
+      <div className="grid gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:items-start lg:gap-14">
+        <div className="rounded-soft border border-forest/12 bg-white p-7 shadow-sm sm:p-10">
+          <div className="flex flex-wrap items-start justify-between gap-5">
+            <SectionHeading eyebrow="From our directors" title={directorMessage.heading} />
 
             <div
               role="group"
               aria-label="Message language"
-              className="flex shrink-0 rounded-full border border-forest/15 bg-white p-1"
+              className="flex shrink-0 rounded-full border border-forest/15 bg-cream p-1"
             >
               {(["en", "ko"] as const).map((code) => (
                 <button
@@ -47,16 +42,22 @@ export default function FounderMessage() {
             </div>
           </div>
 
-          <div lang={langAttr} className="mt-6 space-y-4 text-lg leading-relaxed text-charcoal/75">
+          <div
+            lang={langAttr}
+            className="mt-7 space-y-4 text-lg leading-relaxed text-charcoal/80"
+          >
             {copy.paragraphs.map((paragraph) => (
               <p key={paragraph}>{paragraph}</p>
             ))}
           </div>
 
-          <p lang={langAttr} className="mt-6 text-lg leading-relaxed text-charcoal/75">
+          <p lang={langAttr} className="mt-6 text-lg leading-relaxed text-charcoal/80">
             {copy.prayerLead}
           </p>
-          <ul lang={langAttr} className="mt-4 space-y-2 border-l-2 border-gold-soft pl-5">
+          <ul
+            lang={langAttr}
+            className="mt-5 space-y-2.5 rounded-soft bg-gold/10 px-6 py-5"
+          >
             {copy.affirmations.map((line) => (
               <li key={line} className="font-display text-xl text-forest">
                 {line}
@@ -64,11 +65,11 @@ export default function FounderMessage() {
             ))}
           </ul>
 
-          <p lang={langAttr} className="mt-6 text-lg leading-relaxed text-charcoal/75">
+          <p lang={langAttr} className="mt-6 text-lg leading-relaxed text-charcoal/80">
             {copy.closing}
           </p>
 
-          <div className="mt-6 border-t border-forest/10 pt-5">
+          <div className="mt-7 border-t border-forest/12 pt-5">
             <p lang={langAttr} className="text-base text-charcoal/75">
               {copy.signoffLead}
             </p>
@@ -80,13 +81,18 @@ export default function FounderMessage() {
           </div>
         </div>
 
-        <ContentPhoto
-          src="/home/directors.jpeg"
-          alt="Esther Koh and Julie Kim, co-directors of PTL Treehouse"
-          className="aspect-[4/5] lg:sticky lg:top-32"
-          sizes="(max-width: 1024px) 100vw, 40vw"
-        />
+        {/* The sticky positioning lives on a wrapper: a filled next/image
+            needs a positioned parent, and `sticky` is not one of the values
+            it accepts. */}
+        <div className="lg:sticky lg:top-32">
+          <ContentPhoto
+            src="/home/directors.jpeg"
+            alt="Esther Koh and Julie Kim, co-directors of PTL Treehouse"
+            className="aspect-[4/5] w-full"
+            sizes="(max-width: 1024px) 100vw, 40vw"
+          />
+        </div>
       </div>
-    </section>
+    </Band>
   );
 }

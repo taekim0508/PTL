@@ -37,6 +37,25 @@ export const vision = {
     "and who are prepared to positively impact their families, communities, and future generations.",
 };
 
+/**
+ * Moved here from the home page. It ran two sections below "What Every
+ * Parent Wants", which is the same six promises told from the parent's
+ * side, so the home page said everything twice. Here it reads as the
+ * school's own statement of what it is for, next to the mission it serves.
+ */
+export const childOutcomes = {
+  heading: "What We Are Aiming For",
+  lead: "Everything we do is designed to help children become:",
+  items: [
+    { label: "Confident", line: "To try new things and believe in themselves.", accent: "green" },
+    { label: "Kind", line: "To show compassion and build friendships.", accent: "blush" },
+    { label: "Curious", line: "To explore, wonder, and discover.", accent: "sky" },
+    { label: "Independent", line: "To solve problems and take responsibility.", accent: "gold" },
+    { label: "Ready", line: "To thrive in Kindergarten and beyond.", accent: "bark" },
+    { label: "Rooted", line: "To develop a strong foundation of faith.", accent: "green" },
+  ],
+};
+
 export const team = {
   heading: "Meet Our Team",
   lead: "Meet the people who make PTL Treehouse feel like home.",

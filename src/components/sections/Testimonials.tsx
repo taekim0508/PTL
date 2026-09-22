@@ -2,70 +2,95 @@
 
 import { useState } from "react";
 import { homeTestimonials, testimonialsHeading } from "@/lib/data";
+import Band from "@/components/Band";
+import SectionHeading from "@/components/SectionHeading";
 
+type Testimonial = (typeof homeTestimonials)[number];
+
+function activeQuoteFor(item: Testimonial, showOriginal: boolean) {
+  if (!item.originalQuote) return item.quote;
+  const flipped = item.showOriginalFirst ? !showOriginal : showOriginal;
+  return flipped ? item.originalQuote : item.quote;
+}
+
+/**
+ * One quote set large and two set small, rather than three equal cards. Three
+ * identical boxes make the reader weigh them against each other; a lead quote
+ * and two supporting ones let the first do the persuading and the others
+ * confirm it.
+ */
 export default function Testimonials() {
-  const [showOriginal, setShowOriginal] = useState(false);
+  const [openOriginals, setOpenOriginals] = useState<Record<string, boolean>>({});
+  const [lead, ...rest] = homeTestimonials;
+
+  function renderToggle(item: Testimonial) {
+    if (!item.originalQuote) return null;
+    const showOriginal = openOriginals[item.attribution] ?? false;
+    const showingKorean = item.showOriginalFirst ? !showOriginal : showOriginal;
+    return (
+      <button
+        type="button"
+        onClick={() =>
+          setOpenOriginals((value) => ({
+            ...value,
+            [item.attribution]: !showOriginal,
+          }))
+        }
+        className="mt-5 w-fit rounded-full border border-forest/20 bg-cream px-4 py-2 text-sm font-semibold text-forest transition-colors hover:border-forest/50 hover:bg-white"
+      >
+        {showingKorean ? "Read the English translation" : "Read the Korean original"}
+      </button>
+    );
+  }
 
   return (
-    <section className="mx-auto max-w-7xl px-5 py-16 sm:px-8">
-      <h2 className="text-center font-display text-3xl font-semibold text-forest sm:text-4xl">
-        {testimonialsHeading}
-      </h2>
-      <p className="mx-auto mt-3 max-w-xl text-center text-base leading-relaxed text-charcoal/75">
-        A few words from parents who have entrusted PTL Treehouse with some of
-        their children&apos;s earliest years.
-      </p>
+    <Band tone="page" size="lg">
+      <SectionHeading
+        align="center"
+        eyebrow="From our families"
+        title={testimonialsHeading}
+        lead="A few words from parents who have entrusted PTL Treehouse with some of their children's earliest years."
+      />
 
-      <div className="mt-10 grid items-start gap-5 md:grid-cols-3">
-        {homeTestimonials.map(
-          ({ quote, originalQuote, attribution, showOriginalFirst }) => {
-            const hasToggle = Boolean(originalQuote);
-            const activeQuote = hasToggle
-              ? showOriginalFirst
-                ? showOriginal
-                  ? quote
-                  : originalQuote
-                : showOriginal
-                  ? originalQuote
-                  : quote
-              : quote;
+      <figure className="mt-12 rounded-soft border border-forest/12 bg-white p-8 shadow-sm sm:p-12">
+        <span aria-hidden className="block font-display text-6xl leading-none text-gold/50">
+          &ldquo;
+        </span>
+        <blockquote
+          lang={activeQuoteFor(lead, openOriginals[lead.attribution] ?? false) === lead.originalQuote ? "ko" : "en"}
+          className="-mt-3 font-display text-2xl leading-relaxed text-forest sm:text-[1.75rem]"
+        >
+          {activeQuoteFor(lead, openOriginals[lead.attribution] ?? false)}
+        </blockquote>
+        {renderToggle(lead)}
+        <figcaption className="mt-6 border-t border-forest/12 pt-5 text-sm font-bold uppercase tracking-[0.18em] text-gold-dark">
+          {lead.attribution}
+        </figcaption>
+      </figure>
 
-            return (
-              <div
-                key={attribution}
-                className="flex h-full flex-col rounded-soft border border-forest/10 bg-white p-6 shadow-sm"
+      <div className="mt-6 grid items-start gap-6 md:grid-cols-2">
+        {rest.map((item) => {
+          const showOriginal = openOriginals[item.attribution] ?? false;
+          const quote = activeQuoteFor(item, showOriginal);
+          return (
+            <figure
+              key={item.attribution}
+              className="flex h-full flex-col rounded-soft border border-forest/12 bg-white p-7 shadow-sm"
+            >
+              <blockquote
+                lang={quote === item.originalQuote ? "ko" : "en"}
+                className="flex-1 text-base leading-relaxed text-charcoal/80"
               >
-                <p
-                  lang={activeQuote === originalQuote ? "ko" : "en"}
-                  className="flex-1 text-base leading-relaxed text-charcoal/75"
-                >
-                  &ldquo;{activeQuote}&rdquo;
-                </p>
-
-                {hasToggle ? (
-                  <button
-                    type="button"
-                    onClick={() => setShowOriginal((value) => !value)}
-                    className="mt-4 w-fit rounded-full border border-forest/20 bg-white px-4 py-2 text-sm font-semibold text-forest shadow-sm transition-colors hover:border-forest/40"
-                  >
-                    {showOriginalFirst
-                      ? showOriginal
-                        ? "View Korean original"
-                        : "View English translation"
-                      : showOriginal
-                        ? "View English"
-                        : "View original Korean"}
-                  </button>
-                ) : null}
-
-                <p className="mt-5 text-sm font-semibold uppercase tracking-wide text-charcoal/75">
-                  {attribution}
-                </p>
-              </div>
-            );
-          },
-        )}
+                &ldquo;{quote}&rdquo;
+              </blockquote>
+              {renderToggle(item)}
+              <figcaption className="mt-6 border-t border-forest/12 pt-4 text-sm font-bold uppercase tracking-[0.18em] text-gold-dark">
+                {item.attribution}
+              </figcaption>
+            </figure>
+          );
+        })}
       </div>
-    </section>
+    </Band>
   );
 }

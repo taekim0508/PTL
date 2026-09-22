@@ -24,7 +24,7 @@ export default function ContentPhoto({
   return (
     <div
       className={`relative overflow-hidden rounded-soft border bg-cream-soft shadow-sm ${
-        src ? "border-forest/10" : "border-dashed border-forest/25"
+        src ? "border-forest/12" : "border-dashed border-forest/25"
       } ${className}`}
     >
       {src ? (

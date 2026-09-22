@@ -31,42 +31,54 @@ export default function Nav() {
   }, []);
 
   return (
-    <header className="sticky top-0 z-40 border-b border-forest/10 bg-cream/95 backdrop-blur">
+    <header
+      className={`sticky top-0 z-40 border-b bg-cream/95 backdrop-blur transition-shadow ${
+        scrolled ? "border-forest/15 shadow-[0_1px_12px_rgba(47,74,56,0.08)]" : "border-forest/10"
+      }`}
+    >
       <div
         className={`mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 transition-[padding] duration-300 ease-out sm:px-8 ${
           scrolled ? "py-2.5" : "py-4"
         }`}
       >
-        <Logo
-          preload
-          className={scrolled ? "h-14 sm:h-16" : "h-16 sm:h-[92px]"}
-        />
+        <Logo preload className={scrolled ? "h-12 sm:h-14" : "h-14 sm:h-[76px]"} />
 
-        {/* Seven links plus the tour button need the xl breakpoint to fit
-            beside the logo. Below that, everything moves into the drawer. */}
-        <nav className="hidden items-center gap-5 xl:flex">
-          {navItems.map((item) => (
-            <button
-              key={item.section}
-              type="button"
-              onClick={() => goTo(item.section)}
-              aria-current={section === item.section ? "page" : undefined}
-              className={`text-base font-semibold transition-colors ${
-                section === item.section
-                  ? "text-forest"
-                  : "text-charcoal/75 hover:text-forest"
-              }`}
-            >
-              {item.label}
-            </button>
-          ))}
+        {/* Shortening "Parent Resources" to "FAQ" bought back enough width for
+            the full nav to survive at laptop sizes, so the drawer is now a
+            phone and tablet affordance rather than something a 1280px screen
+            has to put up with. */}
+        <nav aria-label="Main" className="hidden items-center gap-1 lg:flex">
+          {navItems.map((item) => {
+            const active = section === item.section;
+            return (
+              <button
+                key={item.section}
+                type="button"
+                onClick={() => goTo(item.section)}
+                aria-current={active ? "page" : undefined}
+                className={`relative px-3 py-2 text-[0.9375rem] font-semibold transition-colors ${
+                  active ? "text-forest" : "text-charcoal/70 hover:text-forest"
+                }`}
+              >
+                {item.label}
+                {/* Colour alone was carrying the current page. It now has a
+                    mark of its own, which also survives a colour-blind read. */}
+                <span
+                  aria-hidden
+                  className={`absolute inset-x-3 -bottom-0.5 h-[3px] rounded-full bg-gold transition-opacity ${
+                    active ? "opacity-100" : "opacity-0"
+                  }`}
+                />
+              </button>
+            );
+          })}
         </nav>
 
-        <div className="hidden xl:block">
+        <div className="hidden lg:block">
           <button
             type="button"
             onClick={openTour}
-            className="rounded-full bg-forest px-6 py-3 text-base font-semibold text-cream shadow-sm transition-colors hover:bg-forest-dark"
+            className="rounded-full bg-forest px-5 py-2.5 text-[0.9375rem] font-semibold text-cream shadow-sm transition-colors hover:bg-forest-dark"
           >
             Schedule a Tour
           </button>
@@ -74,8 +86,8 @@ export default function Nav() {
 
         <button
           type="button"
-          className="rounded-soft p-2 text-forest xl:hidden"
-          aria-label="Toggle menu"
+          className="rounded-soft p-2 text-forest lg:hidden"
+          aria-label={mobileOpen ? "Close menu" : "Open menu"}
           aria-expanded={mobileOpen}
           onClick={() => setMobileOpen((v) => !v)}
         >
@@ -84,33 +96,39 @@ export default function Nav() {
       </div>
 
       {mobileOpen && (
-        <div className="border-t border-forest/10 bg-cream xl:hidden">
-          <nav className="mx-auto flex max-w-7xl flex-col gap-1 px-5 py-4 sm:px-8">
-            {navItems.map((item) => (
-              <button
-                key={item.section}
-                type="button"
-                onClick={() => {
-                  goTo(item.section);
-                  setMobileOpen(false);
-                }}
-                aria-current={section === item.section ? "page" : undefined}
-                className={`rounded-soft px-3 py-2.5 text-left text-base font-semibold ${
-                  section === item.section
-                    ? "bg-forest/10 text-forest"
-                    : "text-charcoal/75"
-                }`}
-              >
-                {item.label}
-              </button>
-            ))}
+        <div className="border-t border-forest/10 bg-cream lg:hidden">
+          <nav
+            aria-label="Main"
+            className="mx-auto flex max-w-7xl flex-col gap-1 px-5 py-4 sm:px-8"
+          >
+            {navItems.map((item) => {
+              const active = section === item.section;
+              return (
+                <button
+                  key={item.section}
+                  type="button"
+                  onClick={() => {
+                    goTo(item.section);
+                    setMobileOpen(false);
+                  }}
+                  aria-current={active ? "page" : undefined}
+                  className={`rounded-soft border-l-[3px] px-3 py-2.5 text-left text-base font-semibold transition-colors ${
+                    active
+                      ? "border-gold bg-forest/10 text-forest"
+                      : "border-transparent text-charcoal/70 hover:text-forest"
+                  }`}
+                >
+                  {item.label}
+                </button>
+              );
+            })}
             <button
               type="button"
               onClick={() => {
                 openTour();
                 setMobileOpen(false);
               }}
-              className="mt-2 w-fit rounded-full bg-forest px-6 py-3 text-base font-semibold text-cream shadow-sm transition-colors hover:bg-forest-dark"
+              className="mt-3 w-fit rounded-full bg-forest px-6 py-3 text-base font-semibold text-cream shadow-sm transition-colors hover:bg-forest-dark"
             >
               Schedule a Tour
             </button>

@@ -38,7 +38,7 @@ export default function Accordion({
   }
 
   return (
-    <div className="space-y-4">
+    <div className="space-y-3">
       {items.map((item) => {
         const open = currentOpenId === item.id;
         return (
@@ -46,7 +46,12 @@ export default function Accordion({
             key={item.id}
             // Doubles as the anchor target for in-page links to this item.
             id={item.id}
-            className="overflow-hidden rounded-soft border border-forest/10 bg-white shadow-sm"
+            /* An open row carries a gold edge. A row that is doing something
+               should look different from eight rows that are not, and the
+               chevron alone was too small to carry that. */
+            className={`overflow-hidden rounded-soft border bg-white shadow-sm transition-colors ${
+              open ? "border-forest/20" : "border-forest/12 hover:border-forest/30"
+            }`}
           >
             <h3>
               <button
@@ -54,7 +59,9 @@ export default function Accordion({
                 onClick={() => toggle(open ? null : item.id)}
                 aria-expanded={open}
                 aria-controls={`${item.id}-panel`}
-                className="flex w-full items-start gap-4 p-5 text-left"
+                className={`flex w-full items-start gap-4 border-l-[3px] p-5 text-left transition-colors ${
+                  open ? "border-gold" : "border-transparent"
+                }`}
               >
                 <span className="flex-1">
                   <span className="block font-display text-xl font-semibold text-forest">
@@ -74,7 +81,7 @@ export default function Accordion({
             {open ? (
               <div
                 id={`${item.id}-panel`}
-                className="border-t border-forest/10 px-5 pb-5 pt-4"
+                className="border-t border-forest/12 bg-cream/50 px-5 pb-6 pt-5"
               >
                 {item.body}
               </div>

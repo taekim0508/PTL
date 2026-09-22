@@ -1,39 +1,49 @@
 "use client";
 
+import { MapPin } from "lucide-react";
+import { contactInfo } from "@/lib/data";
 import { useApp } from "@/context/AppContext";
-import ContentPhoto from "@/components/ContentPhoto";
+import SectionHeading from "@/components/SectionHeading";
+import SplitFeature from "@/components/SplitFeature";
 
 export default function HomeCta() {
-  const { openTour } = useApp();
+  const { openTour, goTo } = useApp();
 
   return (
-    <section className="mx-auto max-w-7xl px-5 py-16 sm:px-8">
-      <div className="grid gap-10 rounded-soft border border-forest/10 bg-cream-soft px-6 py-10 shadow-sm sm:px-10 sm:py-12 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
-        <ContentPhoto
-          alt="Children at play in a PTL Treehouse classroom"
-          placeholder="A classroom moment from a PTL tour"
-          className="aspect-[4/3]"
-          sizes="(max-width: 1024px) 100vw, 44vw"
-        />
+    <SplitFeature
+      src="/home/visit-ptl.jpg"
+      alt="A child practising letters in a workbook at her desk"
+      tone="forest"
+      reverse
+    >
+      <SectionHeading
+        tone="dark"
+        eyebrow="Come and see"
+        title="Visit PTL"
+        lead="A tour is the best way to know whether a school is right for your family. Come while the children are here, and see what an ordinary morning actually looks like."
+      />
 
-        <div>
-          <h2 className="font-display text-3xl font-semibold text-forest sm:text-4xl">
-            Visit PTL
-          </h2>
-          <p className="mt-3 max-w-xl text-lg leading-relaxed text-charcoal/75">
-            We&apos;d love to meet your family and show you what life at PTL
-            feels like in person. A tour is the best way to experience the
-            classroom atmosphere and meet our team.
-          </p>
-          <button
-            type="button"
-            onClick={openTour}
-            className="mt-6 rounded-full bg-forest px-7 py-3.5 text-base font-semibold text-cream shadow-sm transition-colors hover:bg-forest-dark"
-          >
-            Schedule a Tour
-          </button>
-        </div>
+      <div className="mt-8 flex flex-wrap gap-3">
+        <button
+          type="button"
+          onClick={openTour}
+          className="rounded-full bg-cream px-7 py-3.5 text-base font-semibold text-forest shadow-sm transition-colors hover:bg-gold-soft"
+        >
+          Schedule a Tour
+        </button>
+        <button
+          type="button"
+          onClick={() => goTo("contact")}
+          className="rounded-full border-2 border-cream/40 px-7 py-3.5 text-base font-semibold text-cream transition-colors hover:bg-cream/10"
+        >
+          Contact Us
+        </button>
       </div>
-    </section>
+
+      <p className="mt-8 flex items-start gap-2.5 border-t border-cream/20 pt-6 text-base text-cream/75">
+        <MapPin className="mt-1 h-4 w-4 shrink-0 text-gold-soft" strokeWidth={1.75} />
+        {contactInfo.address}
+      </p>
+    </SplitFeature>
   );
 }

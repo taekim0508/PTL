@@ -28,7 +28,7 @@ function ActiveSection() {
       return <DailyLife />;
     case "admissions":
       return <Admissions />;
-    case "parent-resources":
+    case "faq":
       return <ParentResources />;
     case "contact":
       return <Contact />;

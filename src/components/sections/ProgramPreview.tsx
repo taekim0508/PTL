@@ -3,76 +3,76 @@
 import { ArrowRight } from "lucide-react";
 import { programs } from "@/lib/data";
 import { useApp } from "@/context/AppContext";
+import Band from "@/components/Band";
+import SectionHeading from "@/components/SectionHeading";
 import ContentPhoto from "@/components/ContentPhoto";
 
 export default function ProgramPreview() {
   const { goTo } = useApp();
 
   return (
-    <section className="mx-auto max-w-7xl px-5 py-16 sm:px-8">
-      <div className="flex items-end justify-between gap-4">
-        <h2 className="font-display text-3xl font-semibold text-forest sm:text-4xl">
-          Our Programs
-        </h2>
-        <button
-          type="button"
-          onClick={() => goTo("programs")}
-          className="hidden items-center gap-1.5 text-base font-semibold text-forest hover:text-forest-dark sm:flex"
-        >
-          See all programs
-          <ArrowRight className="h-4 w-4" strokeWidth={2} />
-        </button>
-      </div>
+    <Band tone="page" size="lg">
+      <SectionHeading
+        eyebrow="Four ways to join us"
+        title="Our Programs"
+        lead="Morning, lunch-extended, full-day, and aftercare options, all inside the same nurturing, faith-filled, bilingual school."
+        action={
+          <button
+            type="button"
+            onClick={() => goTo("programs")}
+            className="flex items-center gap-1.5 text-base font-semibold text-forest transition-colors hover:text-forest-dark"
+          >
+            See all programs
+            <ArrowRight className="h-4 w-4" strokeWidth={2} />
+          </button>
+        }
+      />
 
-      <div className="mt-8 grid gap-8 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:items-center">
-        <div>
-          <p className="max-w-lg text-lg leading-relaxed text-charcoal/75">
-            Choose from morning, lunch-extended, full-day, and aftercare
-            options within the same nurturing, faith-filled, bilingual school
-            environment.
-          </p>
-
-          <div className="mt-6 overflow-hidden rounded-soft border border-forest/10 bg-white shadow-sm">
-            {programs.map((program, index) => (
-              <div
-                key={program.id}
-                className={`px-5 py-4 ${
-                  index !== programs.length - 1
-                    ? "border-b border-forest/10"
-                    : ""
-                }`}
-              >
-                <div className="flex flex-col gap-1 sm:flex-row sm:items-start sm:justify-between sm:gap-4">
-                  <div>
-                    <h3 className="font-display text-xl font-semibold leading-tight text-forest">
-                      {program.name}
-                    </h3>
-                    <p className="mt-1 text-base leading-relaxed text-charcoal/75">
-                      {program.summary}
-                    </p>
-                  </div>
-                  <p className="shrink-0 text-sm font-semibold text-gold-dark">
-                    {program.hours}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
+      <div className="mt-10 grid gap-8 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:gap-12">
+        <div className="overflow-hidden rounded-soft border border-forest/12 bg-white shadow-sm">
+          {programs.map((program, index) => (
+            <button
+              key={program.id}
+              type="button"
+              onClick={() => goTo("programs")}
+              className={`flex w-full flex-col gap-1 border-l-[3px] border-transparent px-5 py-5 text-left transition-colors hover:border-gold hover:bg-cream/70 sm:flex-row sm:items-start sm:justify-between sm:gap-6 ${
+                index !== programs.length - 1 ? "border-b-forest/12 border-b" : ""
+              }`}
+            >
+              <span>
+                <span className="block font-display text-xl font-semibold leading-tight text-forest">
+                  {program.name}
+                </span>
+                <span className="mt-1 block max-w-md text-base leading-relaxed text-charcoal/80">
+                  {program.summary}
+                </span>
+              </span>
+              <span className="shrink-0 text-right">
+                <span className="block text-sm font-semibold text-gold-dark">
+                  {program.hours}
+                </span>
+                <span className="mt-0.5 block font-display text-lg font-semibold text-forest">
+                  {program.tuition}
+                  <span className="text-sm font-normal text-charcoal/70">/mo</span>
+                </span>
+              </span>
+            </button>
+          ))}
         </div>
 
-        <div className="space-y-3">
+        <figure className="lg:self-start">
           <ContentPhoto
             src="/home/learning.jpg"
             alt="A child working with a colorful counting abacus"
-            className="aspect-[4/3]"
-            sizes="(max-width: 1024px) 100vw, 46vw"
+            className="aspect-[4/3] w-full"
+            sizes="(max-width: 1024px) 100vw, 44vw"
           />
-          <p className="text-base leading-relaxed text-charcoal/75">
+          <figcaption className="mt-3 text-base leading-relaxed text-charcoal/80">
             Hands-on projects, language-rich lessons, and joyful classroom
             routines help children build confidence through everyday learning.
-          </p>
-        </div>
+          </figcaption>
+        </figure>
       </div>
-    </section>
+    </Band>
   );
 }

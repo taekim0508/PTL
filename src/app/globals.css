@@ -1,10 +1,15 @@
 @import "tailwindcss";
 
 :root {
+  /* Surfaces, lightest to darkest. Bands alternate down this ladder so a
+     section change is always a visible step, never a guess. */
   --color-cream: #fbf6ee;
   --color-cream-soft: #f4ecdd;
+  --color-sand: #f1e7d7;
   --color-forest: #2f4a38;
   --color-forest-dark: #22362a;
+  --color-forest-deep: #1b2b20;
+
   --color-gold: #c99a3e;
   --color-gold-soft: #e8cf9c;
   --color-rose: #c97b63;
@@ -27,8 +32,10 @@
 @theme inline {
   --color-cream: var(--color-cream);
   --color-cream-soft: var(--color-cream-soft);
+  --color-sand: var(--color-sand);
   --color-forest: var(--color-forest);
   --color-forest-dark: var(--color-forest-dark);
+  --color-forest-deep: var(--color-forest-deep);
   --color-gold: var(--color-gold);
   --color-gold-soft: var(--color-gold-soft);
   --color-rose: var(--color-rose);
@@ -87,8 +94,10 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Anchored sections sit below the sticky header when jumped to. */
-[id] {
+/* Anchored sections sit below the sticky header when jumped to. Scoped to the
+   elements we actually target, rather than every id on the page. */
+section[id],
+div[id] {
   scroll-margin-top: 7rem;
 }
 
@@ -104,6 +113,13 @@ summary:focus-visible,
   outline: 3px solid var(--color-gold);
   outline-offset: 2px;
   border-radius: 0.35rem;
+}
+
+/* On the dark bands the gold ring muddies against forest, so it goes pale. */
+.on-forest a:focus-visible,
+.on-forest button:focus-visible,
+.on-forest [tabindex]:focus-visible {
+  outline-color: var(--color-gold-soft);
 }
 
 .skip-link {

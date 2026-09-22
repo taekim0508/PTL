@@ -5,16 +5,21 @@ export type NavSection =
   | "programs"
   | "daily-life"
   | "admissions"
-  | "parent-resources"
+  | "faq"
   | "contact";
 
+/**
+ * Nav labels name the page they open. "FAQ" replaced "Parent Resources"
+ * because the page it leads to is titled Frequently Asked Questions and
+ * contains nothing else; the old label promised a library that isn't there.
+ */
 export const navItems: { label: string; section: NavSection }[] = [
   { label: "About", section: "about" },
   { label: "Our Approach", section: "approach" },
   { label: "Programs", section: "programs" },
   { label: "Daily Life", section: "daily-life" },
   { label: "Admissions", section: "admissions" },
-  { label: "Parent Resources", section: "parent-resources" },
+  { label: "FAQ", section: "faq" },
   { label: "Contact", section: "contact" },
 ];
 

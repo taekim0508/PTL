@@ -26,8 +26,8 @@ export const pillars = [
     id: "pray",
     label: "Pray to Learn",
     accent: "gold",
-    image: null as string | null,
-    imageAlt: "Devotion time",
+    image: "/home/circle-time-devotion.jpg" as string | null,
+    imageAlt: "A child's hands folded in prayer beside paper letters spelling PRAY",
     lead: "Faith is naturally woven throughout our day. Children participate in:",
     points: [
       "Daily prayer",
