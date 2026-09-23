@@ -80,9 +80,11 @@ export const dailySchedule = {
     { time: "11:00 – 11:35 AM", activity: "Outdoor Exploration" },
     { time: "11:35 – 11:50 AM", activity: "Story Time, Music & Movement" },
     { time: "11:50 – 12:00 PM", activity: "Transition" },
-    { time: "12:00 PM", activity: "Good Bye (no-lunch class)" },
     { time: "12:00 – 12:25 PM", activity: "Lunch" },
-    { time: "12:25 – 12:30 PM", activity: "Transition to Enrichment Program" },
+    {
+      time: "12:25 – 12:30 PM",
+      activity: "Good Bye (morning class) / Transition to Enrichment Program",
+    },
   ],
 };
 

@@ -4,7 +4,7 @@ import ProgramsPage from "@/components/sections/ProgramsPage";
 export const metadata = pageMetadata({
   title: "Preschool Programs",
   description:
-    "Morning, morning plus lunch, full-day, and aftercare programs for ages 2.5 to 5, with Korean-English bilingual instruction woven through the week.",
+    "Morning, full-day, and aftercare programs for ages 2.5 to 5, with Korean-English bilingual instruction woven through the week.",
   path: "/programs",
 });
 

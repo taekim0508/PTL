@@ -9,9 +9,9 @@ export default function ProgramPreview() {
   return (
     <Band tone="page" size="lg">
       <SectionHeading
-        eyebrow="Four ways to join us"
+        eyebrow="Three ways to join us"
         title="Our Programs"
-        lead="Morning, lunch-extended, full-day, and aftercare options, all inside the same nurturing, faith-filled, bilingual school."
+        lead="Morning, full-day, and aftercare options, all inside the same nurturing, faith-filled, bilingual school."
         action={
           <Link
             href="/programs"

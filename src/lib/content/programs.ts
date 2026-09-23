@@ -7,7 +7,7 @@ export const programs = [
     image: "/home/activities-2.jpg" as string | null,
     imageAlt: "Morning classroom",
     name: "Morning Preschool",
-    hours: "8:30 AM – 12:00 PM",
+    hours: "8:30 AM – 12:30 PM",
     tuition: "$900",
     summary:
       "A nurturing morning focused on learning through play, social development, and Kindergarten readiness.",
@@ -22,22 +22,6 @@ export const programs = [
       "Story Time",
       "Art & Creative Exploration",
       "Snack",
-    ],
-  },
-  {
-    id: "morning-lunch",
-    image: "/home/morning-pre-w-lunch.jpg" as string | null,
-    imageAlt: "Two children eating lunch together at a classroom table",
-    name: "Morning Preschool + Lunch",
-    hours: "8:30 AM – 12:30 PM",
-    tuition: "$1,080",
-    summary:
-      "Everything in the morning program, plus a fresh hot lunch and extended learning time.",
-    lead: "Includes everything in the morning program plus:",
-    includes: [
-      "Fresh hot lunch",
-      "Additional social opportunities",
-      "Extended learning experiences",
     ],
   },
   {
