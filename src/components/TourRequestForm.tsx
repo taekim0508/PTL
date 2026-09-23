@@ -43,16 +43,40 @@ type Props = {
  * fields say so on the label rather than leaving the visitor to guess which
  * of the six they are allowed to skip.
  */
+type Status = "idle" | "sending" | "sent" | "error";
+
 export default function TourRequestForm({ variant = "page" }: Props) {
-  const [submitted, setSubmitted] = useState(false);
+  const [status, setStatus] = useState<Status>("idle");
   const isModal = variant === "modal";
 
-  function handleSubmit(e: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    setSubmitted(true);
+    if (status === "sending") return;
+
+    // Read the fields before awaiting: the event's currentTarget is gone by
+    // the time the request comes back.
+    const form = e.currentTarget;
+    const payload = Object.fromEntries(new FormData(form));
+
+    setStatus("sending");
+    try {
+      const res = await fetch("/api/tour", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+      if (!res.ok) throw new Error(`Tour request failed: ${res.status}`);
+      form.reset();
+      setStatus("sent");
+    } catch (cause) {
+      // Never show the thank-you screen for a request that did not arrive.
+      // A family who thinks they have asked for a tour will not ask twice.
+      console.error(cause);
+      setStatus("error");
+    }
   }
 
-  if (submitted) {
+  if (status === "sent") {
     return (
       <div className="flex flex-col items-center gap-3 py-10 text-center">
         <span className="flex h-14 w-14 items-center justify-center rounded-full bg-leaf/15">
@@ -67,7 +91,7 @@ export default function TourRequestForm({ variant = "page" }: Props) {
         </p>
         <button
           type="button"
-          onClick={() => setSubmitted(false)}
+          onClick={() => setStatus("idle")}
           className="mt-1 text-sm font-semibold text-forest underline underline-offset-2"
         >
           Send another request
@@ -141,11 +165,33 @@ export default function TourRequestForm({ variant = "page" }: Props) {
           </Field>
         )}
 
+        {status === "error" ? (
+          <p
+            role="alert"
+            className="rounded-soft border border-rose-dark/40 bg-rose/10 px-4 py-3 text-base leading-relaxed text-charcoal"
+          >
+            Something went wrong sending your request, and we would rather tell
+            you than let it disappear. Please call or text us at{" "}
+            <a href={telHref} className="font-semibold text-forest underline underline-offset-2">
+              {contactInfo.phone}
+            </a>
+            , or email{" "}
+            <a
+              href={`mailto:${contactInfo.email}`}
+              className="font-semibold text-forest underline underline-offset-2"
+            >
+              {contactInfo.email}
+            </a>
+            .
+          </p>
+        ) : null}
+
         <button
           type="submit"
-          className="w-full rounded-full bg-forest px-7 py-3.5 text-base font-semibold text-cream shadow-sm transition-colors hover:bg-forest-dark sm:w-auto"
+          disabled={status === "sending"}
+          className="w-full rounded-full bg-forest px-7 py-3.5 text-base font-semibold text-cream shadow-sm transition-colors hover:bg-forest-dark disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"
         >
-          Request a Tour
+          {status === "sending" ? "Sending…" : "Request a Tour"}
         </button>
 
         <p className="text-sm leading-relaxed text-charcoal/75">
