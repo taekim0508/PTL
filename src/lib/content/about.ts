@@ -59,8 +59,10 @@ export const childOutcomes = {
 export const team = {
   heading: "Meet Our Team",
   lead: "Meet the people who make PTL Treehouse feel like home.",
-  image: "/home/directors.jpeg",
-  imageAlt: "Esther Koh and Julie Kim, co-directors of PTL Treehouse",
+  video: "/home/directors-snow.mp4",
+  videoPoster: "/home/directors-snow.jpg",
+  videoLabel:
+    "Esther Koh and Julie Kim, co-directors of PTL Treehouse, waving in winter running gear before a 5K",
   members: [
     { name: "Esther Koh", role: "Founder & Co-Director" },
     { name: "Julie Kim", role: "Co-Owner & Co-Director" },

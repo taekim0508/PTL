@@ -6,7 +6,7 @@ import {
   admissionsSteps,
   contactInfo,
   programs,
-  registrationFee,
+  costs,
   requirements,
 } from "@/lib/data";
 import { useApp } from "@/context/AppContext";
@@ -124,63 +124,40 @@ export default function Admissions() {
           </table>
         </div>
 
-        {/* Two cards, not one full-width slab: the question a parent arrives
-            with is "what will this cost", and the answer is a conversation
-            next to the one number we can publish. */}
-        <div className="mt-6 grid gap-5 sm:grid-cols-2">
-          <div className={`${CARD} flex flex-col p-6 sm:p-7`}>
-            <h3 className="font-display text-xl font-semibold text-forest">
-              Ask About Tuition
-            </h3>
-            <p className="mt-1.5 text-base leading-relaxed text-charcoal/80">
-              Call or text us, or ask on your tour, and we will walk you through
-              current monthly tuition for the program you are considering.
-            </p>
-            <dl className="mt-auto grid gap-3 pt-5">
-              <div className="flex items-baseline justify-between gap-4 rounded-soft border border-forest/12 bg-cream px-5 py-3.5">
-                <dt className="text-base text-charcoal/80">Call or text</dt>
-                <dd>
-                  <a
-                    href={telHref}
-                    className="font-display text-lg font-semibold text-forest underline underline-offset-2"
-                  >
-                    {contactInfo.phone}
-                  </a>
-                </dd>
-              </div>
-              <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 rounded-soft border border-forest/12 bg-cream px-5 py-3.5">
-                <dt className="text-base text-charcoal/80">Email</dt>
-                <dd>
-                  <a
-                    href={`mailto:${contactInfo.email}`}
-                    className="font-display text-base font-semibold text-forest underline underline-offset-2"
-                  >
-                    {contactInfo.email}
-                  </a>
-                </dd>
-              </div>
-            </dl>
-          </div>
-
-          <div className={`${CARD} flex flex-col p-6 sm:p-7`}>
-            <h3 className="font-display text-xl font-semibold text-forest">
-              {registrationFee.heading}
-            </h3>
-            <p className="mt-1.5 text-base leading-relaxed text-charcoal/80">
-              Charged once at enrolment, not monthly.
-            </p>
-            <dl className="mt-auto grid gap-3 pt-5">
-              {registrationFee.rows.map(({ label, value }) => (
-                <div
-                  key={label}
-                  className="flex items-baseline justify-between gap-4 rounded-soft border border-forest/12 bg-cream px-5 py-3.5"
+        {/* One card, because there is one answer. Two ways to reach us sit
+            where the figures used to, so the section still ends on something
+            a parent can act on. */}
+        <div className={`${CARD} mt-6 p-6 sm:p-7`}>
+          <h3 className="font-display text-xl font-semibold text-forest">
+            {costs.heading}
+          </h3>
+          <p className="mt-1.5 max-w-2xl text-base leading-relaxed text-charcoal/80">
+            {costs.body}
+          </p>
+          <dl className="mt-5 grid gap-3 sm:grid-cols-2">
+            <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 rounded-soft border border-forest/12 bg-cream px-5 py-3.5">
+              <dt className="text-base text-charcoal/80">Call or text</dt>
+              <dd>
+                <a
+                  href={telHref}
+                  className="font-display text-lg font-semibold text-forest underline underline-offset-2"
                 >
-                  <dt className="text-base text-charcoal/80">{label}</dt>
-                  <dd className="font-display text-lg font-semibold text-forest">{value}</dd>
-                </div>
-              ))}
-            </dl>
-          </div>
+                  {contactInfo.phone}
+                </a>
+              </dd>
+            </div>
+            <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 rounded-soft border border-forest/12 bg-cream px-5 py-3.5">
+              <dt className="text-base text-charcoal/80">Email</dt>
+              <dd>
+                <a
+                  href={`mailto:${contactInfo.email}`}
+                  className="font-display text-base font-semibold text-forest underline underline-offset-2"
+                >
+                  {contactInfo.email}
+                </a>
+              </dd>
+            </div>
+          </dl>
         </div>
       </Band>
 

@@ -144,7 +144,7 @@ export const faqCategories: FaqCategory[] = [
       },
       {
         q: "How much does it cost?",
-        a: "Tuition depends on the program and the days your family needs, so we go through it with you directly. Call or text us, or ask during your tour, and we will share current rates. The one-time registration fee is listed on our Admissions page.",
+        a: "Tuition depends on the program and the days your family needs, and there is a one-time registration fee at enrolment. We go through both with you directly, so call or text us, or ask during your tour, and we will share current rates.",
       },
       {
         q: "Do you have a waitlist?",

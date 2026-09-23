@@ -86,8 +86,8 @@ export default function FounderMessage() {
             it accepts. */}
         <div className="lg:sticky lg:top-32">
           <ContentPhoto
-            src="/home/directors.jpeg"
-            alt="Esther Koh and Julie Kim, co-directors of PTL Treehouse"
+            src="/home/directors-5k.jpg"
+            alt="Esther Koh and Julie Kim, co-directors of PTL Treehouse, at a community charity run"
             className="aspect-[4/5] w-full"
             sizes="(max-width: 1024px) 100vw, 40vw"
           />

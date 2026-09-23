@@ -12,6 +12,7 @@ import PageHeader from "@/components/PageHeader";
 import SectionHeading from "@/components/SectionHeading";
 import SectionNav from "@/components/SectionNav";
 import ContentPhoto from "@/components/ContentPhoto";
+import ContentVideo from "@/components/ContentVideo";
 
 export default function AboutUs() {
   return (
@@ -138,15 +139,18 @@ export default function AboutUs() {
         </div>
       </Band>
 
-      <Band id="team" tone="page" size="lg">
+      <Band id="team" tone="page" size="lg" width="mid">
         <SectionHeading eyebrow="Meet our team" title={team.heading} lead={team.lead} />
 
-        <div className="mt-10 grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center lg:gap-14">
-          <ContentPhoto
-            src={team.image}
-            alt={team.imageAlt}
-            className="aspect-[4/3] w-full"
-            sizes="(max-width: 1024px) 100vw, 50vw"
+        {/* The team portrait is a clip now, and a clip shot on a phone is
+            tall. It takes the narrower column at a portrait ratio, capped so
+            it cannot grow into a poster on a wide screen. */}
+        <div className="mt-10 grid gap-10 lg:grid-cols-[24rem_minmax(0,1fr)] lg:items-center lg:gap-14">
+          <ContentVideo
+            src={team.video}
+            poster={team.videoPoster}
+            label={team.videoLabel}
+            className="mx-auto aspect-[3/4] w-full max-w-sm lg:mx-0"
           />
           <ul className="space-y-4">
             {team.members.map(({ name, role }) => (
