@@ -24,14 +24,17 @@ export default function ProgramPreview() {
       />
 
       <div className="mt-10 grid gap-8 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:gap-12">
-        <div className="overflow-hidden rounded-soft border border-forest/12 bg-white shadow-sm">
+        {/* The card stretches to the photo column, so the rows share that
+            height between them rather than leaving a slab of white under the
+            last one. Three programmes or four, the list stays balanced. */}
+        <div className="flex flex-col overflow-hidden rounded-soft border border-forest/12 bg-white shadow-sm">
           {programs.map((program, index) => (
             /* Each row deep-links to its own programme, which is a thing the
                accordion on /programs knows how to open. */
             <Link
               key={program.id}
               href={`/programs#${program.id}`}
-              className={`flex w-full flex-col gap-1 border-l-[3px] border-transparent px-5 py-5 text-left transition-colors hover:border-gold hover:bg-cream/70 sm:flex-row sm:items-start sm:justify-between sm:gap-6 ${
+              className={`flex w-full flex-1 flex-col justify-center gap-1 border-l-[3px] border-transparent px-5 py-5 text-left transition-colors hover:border-gold hover:bg-cream/70 sm:flex-row sm:items-center sm:justify-between sm:gap-6 ${
                 index !== programs.length - 1 ? "border-b border-b-forest/12" : ""
               }`}
             >

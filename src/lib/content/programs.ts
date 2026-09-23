@@ -8,7 +8,7 @@ export const programs = [
     imageAlt: "Morning classroom",
     name: "Morning Preschool",
     hours: "8:30 AM – 12:30 PM",
-    tuition: "$900",
+    tuition: "$1,080",
     summary:
       "A nurturing morning focused on learning through play, social development, and Kindergarten readiness.",
     lead: "Perfect for families looking for a nurturing preschool experience focused on learning through play, social development, and Kindergarten readiness. Includes:",
