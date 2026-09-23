@@ -6,14 +6,14 @@ import Foundations from "@/components/sections/Foundations";
 import ProgramPreview from "@/components/sections/ProgramPreview";
 import BilingualSnapshot from "@/components/sections/BilingualSnapshot";
 import FounderMessage from "@/components/sections/FounderMessage";
-import Testimonials from "@/components/sections/Testimonials";
+import Reviews from "@/components/sections/Reviews";
 import HomeCta from "@/components/sections/HomeCta";
 
 /**
  * The page alternates surface and shape deliberately. No two neighbouring
  * sections share a background, and no silhouette repeats before the reader
  * has seen two others: hero, verse, fact strip, list beside a photo, dark
- * three-up, table beside a photo, full-bleed split, letter, quotes, split.
+ * three-up, table beside a photo, full-bleed split, letter, reviews, split.
  *
  * "Everything we do is designed to help children become" used to sit between
  * the fact strip and the pillars. It is the same six promises as "What Every
@@ -31,7 +31,7 @@ export default function Home() {
       <ProgramPreview />
       <BilingualSnapshot />
       <FounderMessage />
-      <Testimonials />
+      <Reviews />
       <HomeCta />
     </>
   );
