@@ -36,7 +36,7 @@ export default function AboutUs() {
             sizes="(max-width: 1024px) 100vw, 45vw"
           />
           <div>
-            <SectionHeading eyebrow="Our story" title="Thirteen Years On This Corner" />
+            <SectionHeading eyebrow="Our story" title="Fifteen Years On This Corner" />
             <div className="mt-6 space-y-4 text-lg leading-relaxed text-charcoal/80">
               {aboutIntro.paragraphs.map((paragraph) => (
                 <p key={paragraph}>{paragraph}</p>

@@ -47,12 +47,8 @@ export default function ProgramPreview() {
                 </span>
               </span>
               <span className="shrink-0 sm:text-right">
-                <span className="block text-sm font-semibold text-gold-dark">
+                <span className="block font-display text-lg font-semibold text-forest">
                   {program.hours}
-                </span>
-                <span className="mt-0.5 block font-display text-lg font-semibold text-forest">
-                  {program.tuition}
-                  <span className="text-sm font-normal text-charcoal/70">/mo</span>
                 </span>
               </span>
             </Link>

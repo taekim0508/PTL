@@ -8,7 +8,6 @@ export const programs = [
     imageAlt: "Morning classroom",
     name: "Morning Preschool",
     hours: "8:30 AM – 12:30 PM",
-    tuition: "$1,080",
     summary:
       "A nurturing morning focused on learning through play, social development, and Kindergarten readiness.",
     lead: "Perfect for families looking for a nurturing preschool experience focused on learning through play, social development, and Kindergarten readiness. Includes:",
@@ -30,7 +29,6 @@ export const programs = [
     imageAlt: "Preschoolers resting on cots during quiet time",
     name: "Full-Day Program",
     hours: "8:30 AM – 3:30 PM",
-    tuition: "$1,700",
     summary:
       "A balanced full day of learning, rest, exploration, and enrichment.",
     lead: "Our full-day program provides children with a balanced day of learning, rest, exploration, and enrichment. Includes:",
@@ -48,7 +46,6 @@ export const programs = [
     imageAlt: "A row of well-used crayons lined up on a classroom table",
     name: "Aftercare Program",
     hours: "3:30 PM – 4:00 PM",
-    tuition: "$100",
     summary:
       "A little extra care at the end of the day, filled with play and gentle learning.",
     lead: "For families who need a little more time before pickup. Aftercare is the same familiar room and the same familiar teachers, with no rush to finish. Children spend the half hour:",

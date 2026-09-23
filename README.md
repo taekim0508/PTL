@@ -79,7 +79,7 @@ emits schema.org data describing the school itself, which is what a local
 search result is built from.
 
 The hash is free for in-page anchors, so `/admissions#tuition` links straight
-to the tuition table and `/programs#full-day` opens that programme. The
+to the tuition and fees section and `/programs#full-day` opens that programme. The
 router scrolls to the top while it hydrates, which undoes the browser's own
 jump to the anchor, so `src/components/HashScroll.tsx` re-asserts the
 position for a few frames and gives up the moment the reader scrolls.

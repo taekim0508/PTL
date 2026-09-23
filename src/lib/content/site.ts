@@ -1,7 +1,7 @@
 /**
  * Every page is a real route. The hash is deliberately left free so it can
- * carry in-page anchors again: /admissions#tuition goes to the tuition table,
- * not the top of the page.
+ * carry in-page anchors again: /admissions#tuition goes to the tuition and
+ * fees section, not the top of the page.
  */
 export type NavSection =
   | "home"
@@ -59,7 +59,7 @@ export const keyFacts = [
   { label: "Ages served", value: "2.5 to 5 years" },
   { label: "Hours", value: "Monday to Friday, 8:30 AM – 3:30 PM" },
   { label: "Teacher-to-student ratio", value: "1:7" },
-  { label: "Years in operation", value: "13+ years" },
+  { label: "Years in operation", value: "15+ years" },
   { label: "Parent app", value: "Brightwheel" },
   {
     label: "School calendar",

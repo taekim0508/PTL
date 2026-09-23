@@ -11,7 +11,7 @@ export const hero = {
   today: ["Today they are still little.", "Still discovering.", "Still learning who they are."],
   body: [
     "At PTL Treehouse, we believe these years are too precious to rush.",
-    "For over 13 years, we've helped children grow into confident learners, kind friends, curious explorers, and faithful hearts through play-based learning, Christian values, and Korean-English bilingual education.",
+    "For over 15 years, we've helped children grow into confident learners, kind friends, curious explorers, and faithful hearts through play-based learning, Christian values, and Korean-English bilingual education.",
   ],
   close: [
     "Because preschool isn't simply preparation for school.",
@@ -87,7 +87,7 @@ export const directorMessage = {
     paragraphs: [
       "Choosing a preschool is one of the most important decisions a family can make. You are looking for more than a place where your child will learn. You are looking for a place where they will feel safe, known, encouraged, and deeply loved.",
       "That is the heart of PTL Treehouse.",
-      "For over 13 years, our school has been a place where children grow through joyful learning, meaningful relationships, Christian faith, and Korean-English bilingual education. We are grateful to partner with families during such a precious season of their children's lives.",
+      "For over 15 years, our school has been a place where children grow through joyful learning, meaningful relationships, Christian faith, and Korean-English bilingual education. We are grateful to partner with families during such a precious season of their children's lives.",
       "Together, we celebrate new friendships, encourage children through challenges, and help each child grow in confidence, kindness, independence, and a love of learning.",
     ],
     prayerLead: "Our prayer is that every child who walks through our doors leaves knowing:",
@@ -106,7 +106,7 @@ export const directorMessage = {
     paragraphs: [
       "가족에게 맞는 프리스쿨을 선택하는 일은 부모님이 하시는 가장 중요한 결정 중 하나입니다. 부모님은 아이가 배우는 공간 그 이상의 곳을 찾고 계십니다. 아이가 안전함을 느끼고, 자신이 소중히 여겨지고 있음을 알고, 격려받으며, 깊이 사랑받는 곳을 찾고 계십니다.",
       "그것이 바로 PTL Treehouse의 마음입니다.",
-      "지난 13년 이상, 저희 학교는 아이들이 즐거운 배움, 의미 있는 관계, 기독교 신앙, 그리고 한국어-영어 이중언어 교육을 통해 자라나는 공간이 되어 왔습니다. 아이들의 삶에서 이토록 소중한 시기에 가정과 함께 동역할 수 있음에 깊이 감사드립니다.",
+      "지난 15년 이상, 저희 학교는 아이들이 즐거운 배움, 의미 있는 관계, 기독교 신앙, 그리고 한국어-영어 이중언어 교육을 통해 자라나는 공간이 되어 왔습니다. 아이들의 삶에서 이토록 소중한 시기에 가정과 함께 동역할 수 있음에 깊이 감사드립니다.",
       "저희는 아이들이 새로운 친구를 사귀는 기쁨을 함께 나누고, 어려움 속에서도 용기를 낼 수 있도록 격려하며, 한 명 한 명이 자신감, 친절함, 독립심, 그리고 배움을 사랑하는 마음 안에서 자라도록 돕고 있습니다.",
     ],
     prayerLead:

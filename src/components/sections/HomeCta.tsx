@@ -13,8 +13,8 @@ export default function HomeCta() {
 
   return (
     <SplitFeature
-      src="/home/visit-ptl.jpg"
-      alt="A child practising letters in a workbook at her desk"
+      src="/home/visit.jpg"
+      alt="Children drawing and painting together around a classroom table"
       tone="forest"
       reverse
     >

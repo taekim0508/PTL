@@ -2,7 +2,7 @@ export const aboutIntro = {
   lead: "At PTL Treehouse, we believe childhood is one of life's most precious seasons.",
   paragraphs: [
     "These early years shape how children see themselves, how they build relationships, how they approach challenges, and how they understand God's love for them. That's why we are passionate about creating a nurturing environment where children can grow academically, socially, emotionally, and spiritually.",
-    "For over 13 years, PTL Treehouse has partnered with families throughout Mill Creek, Bothell, and surrounding communities to provide a joyful Christian preschool experience that combines faith, play, bilingual education, and meaningful relationships.",
+    "For over 15 years, PTL Treehouse has partnered with families throughout Mill Creek, Bothell, and surrounding communities to provide a joyful Christian preschool experience that combines faith, play, bilingual education, and meaningful relationships.",
   ],
   closing: [
     "Our classrooms are intentionally designed to help children discover who they are while building the confidence and character they need for lifelong success.",

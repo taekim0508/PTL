@@ -80,16 +80,11 @@ export default function ProgramsPage() {
             id: program.id,
             title: program.name,
             meta: (
-              <span className="mt-1.5 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm font-semibold">
-                <span className="flex items-center gap-1.5 text-gold-dark">
-                  <Clock className="h-3.5 w-3.5" strokeWidth={2} />
-                  {program.hours}
-                </span>
-                {/* Tuition is the single most looked-for number on the site.
-                    It used to sit in the same grey run-on as the hours. */}
-                <span className="rounded-full bg-forest/10 px-2.5 py-0.5 text-forest">
-                  {program.tuition} per month
-                </span>
+              /* Hours are the one hard fact in the header, so they get the
+                 pill rather than sitting in a grey run-on under the title. */
+              <span className="mt-1.5 inline-flex items-center gap-1.5 rounded-full bg-forest/10 px-2.5 py-0.5 text-sm font-semibold text-forest">
+                <Clock className="h-3.5 w-3.5" strokeWidth={2} />
+                {program.hours}
               </span>
             ),
             lead: (
@@ -135,14 +130,15 @@ export default function ProgramsPage() {
           </h2>
           <p className="mx-auto mt-3 max-w-lg text-base leading-relaxed text-charcoal/80">
             Most families decide after a visit. Tell us your child&apos;s age and
-            your week, and we will talk through the options with you.
+            your week, and we will talk through the options and the tuition with
+            you.
           </p>
           <div className="mt-6 flex flex-wrap justify-center gap-3">
             <button type="button" onClick={openTour} className={BTN_PRIMARY}>
               Schedule a Tour
             </button>
-            <Link href="/admissions#tuition" className={BTN_SECONDARY}>
-              See Tuition
+            <Link href="/admissions#how-to-enroll" className={BTN_SECONDARY}>
+              How to Enroll
             </Link>
           </div>
         </div>
