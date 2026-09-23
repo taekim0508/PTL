@@ -3,7 +3,9 @@
 import { useState } from "react";
 import { ArrowRight, Star } from "lucide-react";
 import { reviews, reviewSummary, type Review } from "@/lib/content/reviews";
+import { testimonialsHeading } from "@/lib/data";
 import Band from "@/components/Band";
+import SectionHeading from "@/components/SectionHeading";
 
 const MONTHS = [
   "Jan", "Feb", "Mar", "Apr", "May", "Jun",
@@ -93,22 +95,34 @@ function ReviewCard({ review }: { review: Review }) {
 export default function Reviews() {
   return (
     <Band tone="page" size="lg">
-      <div className="flex flex-col items-center text-center">
-        <Stars
-          count={Math.round(reviewSummary.rating)}
-          label={`${reviewSummary.rating} out of 5 stars`}
-        />
-        <p className="mt-4 font-display text-4xl font-semibold leading-tight text-forest sm:text-5xl">
-          {reviewSummary.rating.toFixed(1)} out of 5
-        </p>
-        <p className="mt-2 text-lg text-charcoal/75">
-          from {reviewSummary.total} reviews by PTL Treehouse families
-        </p>
+      <SectionHeading
+        align="center"
+        eyebrow="From our families"
+        title={testimonialsHeading}
+        lead="A few words from parents who have entrusted PTL Treehouse with some of their children's earliest years."
+      />
+
+      {/* The rating sits under the heading rather than replacing it: the
+          sentence says what the section is, the number says how many families
+          stand behind it. */}
+      <div className="mt-8 flex flex-col items-center text-center">
+        <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-2">
+          <Stars
+            count={Math.round(reviewSummary.rating)}
+            label={`${reviewSummary.rating} out of 5 stars`}
+          />
+          <p className="text-lg text-charcoal/80">
+            <span className="font-display text-xl font-semibold text-forest">
+              {reviewSummary.rating.toFixed(1)} out of 5
+            </span>{" "}
+            from {reviewSummary.total} reviews
+          </p>
+        </div>
         <a
           href={reviewSummary.googleUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="mt-5 flex items-center gap-1.5 text-base font-semibold text-forest transition-colors hover:text-forest-dark"
+          className="mt-4 flex items-center gap-1.5 text-base font-semibold text-forest transition-colors hover:text-forest-dark"
         >
           Read them on Google
           <ArrowRight className="h-4 w-4" strokeWidth={2} />
