@@ -13,7 +13,10 @@ import ContentPhoto from "@/components/ContentPhoto";
 export default function ParentWants() {
   return (
     <Band tone="page" size="lg">
-      <div className="grid gap-12 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:gap-16">
+      {/* Equal halves. The old 0.85/1.15 split put the seam between the
+          columns 86px left of the container's centre, which read as the
+          whole section leaning left. */}
+      <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
         <div className="lg:sticky lg:top-32 lg:self-start">
           <SectionHeading
             eyebrow="Why families choose PTL"
@@ -24,7 +27,7 @@ export default function ParentWants() {
             src="/home/activities.jpg"
             alt="Children and a teacher making paper collages together at a low table"
             className="mt-8 aspect-[4/3] w-full"
-            sizes="(max-width: 1024px) 100vw, 40vw"
+            sizes="(max-width: 1024px) 100vw, (max-width: 1344px) 45vw, 576px"
           />
         </div>
 
