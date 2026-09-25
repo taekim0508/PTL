@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Fraunces, Nunito, Caveat } from "next/font/google";
 import { siteUrl } from "@/lib/data";
+import { Analytics } from "@vercel/analytics/next"
 import SiteShell from "@/components/SiteShell";
 import StructuredData from "@/components/StructuredData";
 import "./globals.css";
@@ -75,9 +76,11 @@ export default function RootLayout({
       lang="en"
       className={`${fraunces.variable} ${nunito.variable} ${caveat.variable} h-full antialiased`}
     >
+      
       <body className="min-h-full flex flex-col bg-cream text-charcoal font-body">
         <SiteShell>{children}</SiteShell>
         <StructuredData />
+        <Analytics />
       </body>
     </html>
   );
